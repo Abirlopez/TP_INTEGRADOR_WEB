@@ -1,0 +1,82 @@
+html, body {
+    height: 100%;
+    width: 100%;    /*Establece que html y body deben tener una altura del 100% de la ventana del navegador, es necesario para que flexbox funcione
+                     y el footer aparezca en el fondo*/
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    font-family: "Krub", sans-serif;
+
+    display: flex;
+    flex-direction: column;         /*"Display:flex" = Convierte el <body> en un contenedor Flexbox.
+                                    "Flex-direction: column" indica que los hijos (header, main, footer) se acomodan de arriba hacia abajo (columna).*/
+    box-sizing: border-box;
+}
+
+.logo {
+    height: auto;
+    margin: 20px 20px;
+    width: 150px;
+}
+
+header {
+    background-color: grey;
+}
+
+main {
+    flex: 1;                /*Hace que <main> crezca para llenar el espacio disponible entre el header y el footer.*/
+    padding: 20px;
+}
+
+footer {
+    background-color: #c5c5c5;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    text-align: center;
+    flex-shrink: 0;             /*Evita que el footer se encoja si no hay espacio (lo mas probable es que despues se pueda sacar)*/
+}
+
+.footer-contenedor {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.footer-seccion {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+}
+
+.footer-seccion h2 {
+    margin-top: 0;
+}
+
+.footer-seccion p {
+    margin: 0;
+}
+
+.footer-seccion ul li {
+    margin: 5px 0;
+}
+
+.footer-seccion ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.footer-seccion ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-icon {
+    margin: 0 5px;
+    display: inline-block;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+}
