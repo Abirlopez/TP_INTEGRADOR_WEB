@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giftcard</title>
+    <link rel="stylesheet" href="../css/contenidos.css">
+    <link rel="stylesheet" href="../css/giftcard.css">
+</head>
+<body>
+<header>
+    <div>
+        <a href="inicio.html">
+            <img class="logo" src="../img/Logo.png" alt="logotipo">
+        </a>
+    </div>
+</header>
+
+<main>
+    <h1 class="titulo">Personalización de Giftcard</h1>
+    
+    <section class="giftcard-container">
+        <!-- Vista previa -->
+        <div class="giftcard-preview">
+            <div class="giftcard" id="giftcard">
+                <span class="giftcard-monto" id="preview-monto">$0000.-</span>
+                <p>GIFT CARD para</p>
+                <h2 id="preview-destinatario">Destinatario</h2>
+            </div>
+            <p class="preview-label">VISTA PREVIA DE RESULTADO DE PERSONALIZACIÓN</p>
+        </div>
+
+        <!-- Opciones de personalización -->
+        <div class="giftcard-options">
+            <label for="nombre">Nombre Destinatario</label>
+            <input type="text" id="nombre" placeholder="Nombre Destinatario">
+
+            <label>Color</label>
+            <div class="color-options">
+                <input type="radio" name="color" value="black"> Negro
+                <input type="radio" name="color" value="red"> Rojo
+                <input type="radio" name="color" value="blue"> Azul
+            </div>
+
+            <label>Tamaño de fuente</label>
+            <div class="font-options">
+                <input type="radio" name="fuente" value="20px"> 20px
+                <input type="radio" name="fuente" value="28px"> 28px
+                <input type="radio" name="fuente" value="32px"> 32px
+                <input type="radio" name="fuente" value="48px"> 48px
+                <input type="radio" name="fuente" value="60px"> 60px
+            </div>
+
+            <label for="monto">$ Monto</label>
+            <input type="number" id="monto" placeholder="0000">
+
+         <div class="configuracion">
+  <h3>Ubicación</h3>
+  <div class="opciones-ubicacion">
+    <div class="opcion-ubicacion">
+      <input type="radio" id="ubic1" name="ubicacion">
+      <label for="ubic1"></label>
+    </div>
+    <div class="opcion-ubicacion">
+      <input type="radio" id="ubic2" name="ubicacion">
+      <label for="ubic2"></label>
+    </div>
+    <div class="opcion-ubicacion">
+      <input type="radio" id="ubic3" name="ubicacion">
+      <label for="ubic3"></label>
+    </div>
+  </div>
+
+  <h3>Fondo</h3>
+  <div class="opciones-fondo">
+    <div class="opcion-fondo">
+      <input type="radio" id="fondo1" name="fondo">
+      <label for="fondo1"></label>
+    </div>
+    <div class="opcion-fondo">
+      <input type="radio" id="fondo2" name="fondo">
+      <label for="fondo2"></label>
+    </div>
+    <div class="opcion-fondo">
+      <input type="radio" id="fondo3" name="fondo">
+      <label for="fondo3"></label>
+    </div>
+  </div>
+
+</div>
+
+            <button id="confirmar">CONFIRMAR</button>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-contenedor">
+        <div class="footer-seccion acerca">
+            <h2>Sobre nosotros</h2>
+            <p>Somos una empresa dedicada a proporcionar los mejores cursos en el campo de la tecnología</p>
+        </div>
+        <div class="footer-seccion menu">
+            <h2>Menú</h2>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="footer-seccion social">
+            <h2>Redes sociales</h2>
+            <a href="#" class="social-icon"><img src="../img/facebook-icon.png" alt="Facebook"></a>
+            <a href="#" class="social-icon"><img src="../img/twitter-icon.png" alt="Twitter"></a>
+            <a href="#" class="social-icon"><img src="../img/instagram-icon.png" alt="Instagram"></a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

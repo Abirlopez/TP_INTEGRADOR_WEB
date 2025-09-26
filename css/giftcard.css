@@ -1,0 +1,206 @@
+/* --- Giftcard Container --- */
+.titulo{
+ text-align: right;
+ padding-right: 30px;
+}
+
+
+.giftcard-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px;
+    align-items: start;
+}
+
+/* --- Vista previa --- */
+.giftcard-preview {
+    text-align: center;
+}
+
+.giftcard {
+    width: 100%;
+    max-width: 500px;
+    height: 250px;
+    margin: 0 auto;
+    background-color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+.giftcard-monto {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: black;
+    color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.giftcard h2 {
+    margin-top: 40px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.preview-label {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* --- Opciones de personalización --- */
+.giftcard-options {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.giftcard-options label {
+    display: block;
+    font-weight: bold;
+    margin: 15px 0 5px;
+}
+
+.giftcard-options input[type="text"],
+.giftcard-options input[type="number"],
+.giftcard-options select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+/* Opciones (colores, fuentes, fondo) */
+.color-options,
+.font-options,
+.background-options {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+/* ====== ESTILOS GENERALES ====== */
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #333;
+}
+
+/* Contenedor general */
+.configuracion {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+/* Títulos */
+.configuracion h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* ====== OPCIONES DE UBICACIÓN ====== */
+.opciones-ubicacion {
+  display: flex;
+  gap: 20px;
+}
+
+.opcion-ubicacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Cuadro de ubicación */
+.opcion-ubicacion label {
+  display: block;
+  width: 60px;
+  height: 40px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Simulación de la franja gris dentro */
+.opcion-ubicacion label::before {
+  content: "";
+  position: absolute;
+  background: gray;
+  width: 20px;
+  height: 10px;
+  top: 5px;
+  left: 5px;
+}
+
+/* Input radio escondido */
+.opcion-ubicacion input[type="radio"] {
+  display: none;
+}
+
+/* Cuando está seleccionado */
+.opcion-ubicacion input[type="radio"]:checked + label {
+  border-color: #333;
+}
+
+/* ====== OPCIONES DE FONDO ====== */
+.opciones-fondo {
+  display: flex;
+  gap: 15px;
+}
+
+.opcion-fondo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Cuadro de fondo */
+.opcion-fondo label {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: gray;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Input radio escondido */
+.opcion-fondo input[type="radio"] {
+  display: none;
+}
+
+/* Cuando está seleccionado */
+.opcion-fondo input[type="radio"]:checked + label {
+  border-color: #333;
+}
+
+
+
+
+/* Botón */
+#confirmar {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+#confirmar:hover {
+    background: #555;
+}
