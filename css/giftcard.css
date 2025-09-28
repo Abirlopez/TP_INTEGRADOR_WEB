@@ -84,7 +84,7 @@
     gap: 15px;
     margin-bottom: 10px;
 }
-/* ====== ESTILOS GENERALES ====== */
+/*  Estilos  */
 body {
   font-family: Arial, sans-serif;
   background: #fff;
@@ -98,14 +98,14 @@ body {
   max-width: 400px;
 }
 
-/* Títulos */
+/* Titulos */
 .configuracion h3 {
   font-size: 16px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin: 0;
 }
 
-/* ====== OPCIONES DE UBICACIÓN ====== */
+/* Ubicacion */
 .opciones-ubicacion {
   display: flex;
   gap: 20px;
@@ -118,7 +118,7 @@ body {
   gap: 6px;
 }
 
-/* Cuadro de ubicación */
+/* Cuadro gris */
 .opcion-ubicacion label {
   display: block;
   width: 60px;
@@ -129,14 +129,28 @@ body {
   cursor: pointer;
 }
 
-/* Simulación de la franja gris dentro */
+/* Franja base (solo tamaño y color, sin posición) */
 .opcion-ubicacion label::before {
   content: "";
   position: absolute;
   background: gray;
   width: 20px;
   height: 10px;
+}
+
+/* Variantes */
+.ubic-izquierda::before {
   top: 5px;
+  left: 5px;
+}
+
+.ubic-derecha::before {
+  top: 5px;
+  right: 5px;
+}
+
+.ubic-arriba::before {
+  bottom: 5px;
   left: 5px;
 }
 
@@ -168,10 +182,20 @@ body {
   display: block;
   width: 50px;
   height: 50px;
-  background: gray;
   border: 2px solid #ccc;
   border-radius: 4px;
   cursor: pointer;
+}
+.fondo-default {
+  background: gray;
+}
+
+.fondo-azul {
+  background: lightblue;
+}
+
+.fondo-rojo {
+  background: lightcoral;
 }
 
 /* Input radio escondido */
