@@ -1,50 +1,38 @@
 body {
-    font-size: 16px;
-    font-family: "Krub", sans-serif;
-    background-image: url(../img/FondoPlataformaDeCursosAlternativo.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    line-height: 1.5;
     margin: 0;
     padding: 0;
-    width: 100%;
-    box-sizing: border-box;
 }
 
-.error{
-    margin-bottom: 1em;
-    color: red;
-    margin-left: 0.5em;
-}
 .nav-background {
-    background-color: white;
+    background: #666;
+    padding: 0.5rem 0;
 }
 
 .navegacion-principal {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding: 1em;
-    white-space: nowrap;
-
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1rem;
 }
 
 .navegacion-principal a {
-    padding: 1em;
-    color: black;
+    color: white;
     text-decoration: none;
-    font-size: 1em;
-    font-weight: 700;
-    text-align: center;
-    width: max-content;
+    font-weight: bold;
 }
 
-.sombreado {
-    background-color: #fff;
-    padding: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 100;
+.navegacion-principal a:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    width: 120px;
 }
 
 @media (min-width: 1024px) {
@@ -61,13 +49,9 @@ body {
 }
 
 .search {
-    width: 80%;
-    display: flex;
-    text-align: center;
-    padding: 14px;
-    border-radius: 28px;
-    background: #f6f6f6;
-    transition: background 0.25s;
+    position: relative;
+    flex: 1;
+    margin: 0 1rem;
 }
 
 @media (min-width: 1024px) {
@@ -81,19 +65,18 @@ body {
 }
 
 .search-input {
-    font-size: 16px;
-    font-family: 'Lexend', sans-serif;
-    color: #333333;
-    margin-left: 14px;
-    outline: none;
-    border: none;
-    background: transparent;
     width: 100%;
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.search-input::placeholder,
 .search-icon {
-    color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
 }
 
 
@@ -114,6 +97,7 @@ body {
     padding: 0;
 }
 
+
 .contenedor-contacto h1{
     font-size: 5vw;
 }
@@ -126,39 +110,31 @@ body {
 }
 
 .contenedor-contacto_datos {
+    margin: 1em 10em;   /* Arriba/abajo = 1em, izquierda/derecha = 10em */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 20px;
+    box-shadow: 0 0 20px rgba(184, 174, 174, 0.2);
+    border-radius: 20px;
+    padding: 10px 20px; /* Menos padding interno arriba y abajo */
+}
 
-    margin-left: 0em;
+
+
+.contenedor-mensaje{
+       margin-left: 0em;
     margin-right: 10em;
     margin-top: 5em;
     margin-bottom: 5em;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     font-size: 20px;
     box-shadow: 0 0 20px rgba(184, 174, 174, 0.2);
     border-radius: 20px;
     padding: 20px;
 
-
-
-
-
-
-}
-
-
-form {
-    padding-top: 20px;
-    padding-left: 20px;
-    box-shadow: 0 0 20px rgba(184, 174, 174, 0.2);
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    width: 40%;
-    font-weight: bold;
-    margin-bottom: 1em;
-    margin-top: 1em;
 }
 
 input,
@@ -182,54 +158,31 @@ textarea {
 }
 
 footer {
-    background-color: #c5c5c5;
-    color: rgb(0, 0, 0);
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-    clear: both;
+    background: #666;
+    color: white;
+    margin-top: 2rem;
+    padding: 2rem 1rem;
 }
 
 .footer-container {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-.footer-section {
-    flex: 1;
-    margin: 10px;
-    min-width: 200px;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .footer-section h2 {
-    margin-top: 0;
-}
-
-.footer-section p {
-    margin: 0;
+    margin-bottom: 0.5rem;
 }
 
 .footer-section ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
-
-.footer-section ul li {
-    margin: 5px 0;
-}
-
 .footer-section ul li a {
-    color: rgb(0, 0, 0);
+    color: #fff;
     text-decoration: none;
 }
-
 .footer-section ul li a:hover {
     text-decoration: underline;
 }

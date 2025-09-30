@@ -1,0 +1,201 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.nav-background {
+  background: #666;
+  padding: 0.5rem 0;
+}
+
+.navegacion-principal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.logo {
+  width: 120px;
+}
+
+.search {
+  position: relative;
+  flex: 1;
+  margin: 0 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.inscripcion h1 {
+  margin-bottom: 1rem;
+}
+
+.alumnos-container {
+  margin-bottom: 2rem;
+}
+
+.Java {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.barra_insc {
+  margin-bottom: 0.5rem;
+}
+
+.barra_insc-input,
+select {
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+.barra_insc-input:focus,
+select:focus {
+  outline: 2px solid #4c8bf5;
+}
+
+h2 {
+  margin: 0.5rem 0;
+}
+
+.infomracion_cursos {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.fondo-negro-contenedor {
+  flex: 1;
+  min-width: 200px;
+}
+
+.fondo-negro {
+  background: #222;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+footer {
+  background: #666;
+  color: white;
+  margin-top: 2rem;
+  padding: 2rem 1rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section h2 {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin: 0.3rem 0;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.desarrolladores {
+  flex: 2;
+  background: #555;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem 0;
+}
+
+.nombre--titulo, .dni--titulo {
+  font-weight: bold;
+}
+
+.social-icon img {
+  width: 32px;
+  margin-right: 0.5rem;
+}
+
+.medios-pago {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.imagen-pago {
+  width: 50px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .menu-horizontal {
+    display: none;
+  }
+
+
+  .footer-container {
+    flex-direction: column;
+  }
+}

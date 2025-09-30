@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="../css/formulario.css">
+    <link rel="stylesheet" href="../css/contenidos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body id="body">
+    <header>
+        <div class="nav-background">
+            <nav class="navegacion-principal contenedor sombreado">
+                <a href="../contenido.html">
+                    <img class="logo" src="../img/Logo.png" alt="logoTipo">
+                </a>
+              <div class="search">
+                    <span class="search-icon material-symbols-outlined"></span>
+                    <input class="search-input" type="search" placeholder="Buscar">
+                </div>
+        
+                <div class="menu-horizontal">
+                    <div class="menu-item"><a href="contacto.html">Contacto</a></div>
+                    <div class="menu-item"><a href="Calendario.html">Calendario</a></div>
+                    <div class="menu-item"><a href="giftcard.html">GiftCard</a></div>
+                    <div class="menu-item"><a href="Usuario.html">Usuario</a></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="inscripcion">
+            <h1>Cursos Seleccionados</h1>
+    
+            <form id="alumnos-container">
+                <div id="alumno1" class="alumnos-container">
+                    <div class="Java">
+                        <h2>Inscripción a CURSO</h2>
+                        <div class="barra_insc">
+                            <input class="barra_insc-input" type="text" placeholder="Nombre" id="nombre1">
+                        </div>
+                        <div class="barra_insc">
+                            <input class="barra_insc-input" type="text" placeholder="Apellido" id="apellido1">
+                        </div>
+                        <div class="barra_insc">
+                            <input class="barra_insc-input" type="text" placeholder="DNI" id="dni1">
+                        </div>
+                        <div class="barra_insc">
+                            <input class="barra_insc-input" type="email" placeholder="ejemplo@hotmail.com" id="email1">
+                        </div>
+                        <div class="barra_insc">
+                            <input class="barra_insc-input" type="tel" placeholder="Teléfono" id="telefono1">
+                        </div>
+                        <div>
+                            <label>Curso: </label>
+                            <select id="curso1">
+                                <option value="0">-Seleccione-</option>
+                                <option value="Java">Java</option>
+                                <option value="HTML y CSS">HTML y CSS</option>
+                                <option value="Python">Python</option>
+                            </select>
+                        </div>
+                        <h2>Precio: $1000</h2>
+                    </div>
+                </div>
+            </form>
+
+            <div class="infomracion_cursos">
+                <div class="fondo-negro-contenedor">
+                    <div class="fondo-negro">
+                        <h2 class="precio-total">Precio Total:</h2>
+                        <span>$1000</span>
+                    </div>
+                </div>
+                <div class="fondo-negro-contenedor">
+                    <div class="fondo-negro">
+                        <h2 class="precio-total">Contador Alumnos:</h2>
+                        <span>1</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Sobre Nosotros</h2>
+                <p>Somos una empresa dedicada a proporcionar soluciones innovadoras y efectivas en el campo de la tecnología. Nuestro equipo está comprometido con la excelencia y la satisfacción del cliente.</p>
+            </div>
+            <div class="footer-section menu">
+                <h2>Menú</h2>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h2>Redes Sociales</h2>
+                <a href="#" class="social-icon"><img src="../img/facebook-icon.png" alt="Facebook"></a>
+                <a href="#" class="social-icon"><img src="../img/twitter-icon.png" alt="Twitter"></a>
+                <a href="#" class="social-icon"><img src="../img/instragram-icon.jpeg" alt="Instagram"></a>
+               
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
