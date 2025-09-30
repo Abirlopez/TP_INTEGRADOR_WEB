@@ -199,3 +199,85 @@ footer {
     flex-direction: column;
   }
 }
+/* ========================
+   Celulares (<= 30em ~ 480px)
+   ======================== */
+@media screen and (max-width: 30em) {
+  body {
+    font-size: 70%; /* texto más chico en pantallas reducidas */
+  }
+
+  .navegacion-principal {
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0;
+  }
+
+  .search {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .contenedor-contacto h1 {
+    font-size: 2em;
+  }
+
+  .contenedor-contacto_principal {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contenedor-contacto_datos,
+  .contenedor-mensaje {
+    width: 90%;
+    margin: 1rem 0;
+  }
+
+  footer .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imagen-pago {
+    width: 25%;
+  }
+}
+
+/* ========================
+   Escritorio medio (>= 60em ~ 960px)
+   ======================== */
+@media screen and (min-width: 60em) {
+  body {
+    font-size: 100%;
+  }
+
+  .navegacion-principal {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .search {
+    width: 60%;
+    margin: 0 2rem;
+  }
+
+  .giftcard-container {
+    grid-template-columns: 1fr 1fr; /* dos columnas */
+  }
+
+  .contenedor-contacto_principal {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .contenedor-contacto_datos,
+  .contenedor-mensaje {
+    width: 45%;
+    margin: 2rem;
+  }
+
+  footer .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

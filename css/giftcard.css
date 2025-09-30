@@ -1,112 +1,53 @@
-/* --- Giftcard Container --- */
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
-  background: #f9f9f9;
-  color: #333;
-}
-.titulo{
- text-align: right;
- padding-right: 30px;
-}
-.nav-background {
-  background: #666;
-  padding: 0.5rem 0;
-}
-
-.navegacion-principal {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 1rem;
-}
-.navegacion-principal a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.logo {
-  width: 120px;
-}
-
-.search {
-  position: relative;
-  flex: 1;
-  margin: 0 1rem;
-}
-
-.search-input {
-  width: 100%;
-  padding: 0.5rem 2rem 0.5rem 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.search-icon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #555;
-}
-
-
-
 .giftcard-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    padding: 40px;
+    gap: 2rem;
+    padding: 5%;
     align-items: start;
 }
 
-/* --- Vista previa --- */
 .giftcard-preview {
     text-align: center;
 }
 
 .giftcard {
     width: 100%;
-    max-width: 500px;
-    height: 250px;
+    max-width: 31rem;
+    height: 15rem;
     margin: 0 auto;
     background-color: #ddd;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 1em;
+    padding: 1.25em;
     position: relative;
 }
 
 .giftcard-monto {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0.5em;
+    right: 0.5em;
     background: black;
     color: white;
-    padding: 5px 10px;
-    font-size: 16px;
-    border-radius: 5px;
+    padding: 0.5em 0.5em;
+    font-size: 1em;
+    border-radius: 0.3em;
 }
 
 .giftcard h2 {
-    margin-top: 40px;
-    font-size: 32px;
+    margin-top: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
 .preview-label {
-    margin-top: 15px;
-    font-size: 14px;
+    margin-top: 1rem;
+    font-size: 1rem;
     color: #666;
 }
 
-/* --- Opciones de personalización --- */
 .giftcard-options {
     background: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
     border: 1px solid #ccc;
 }
 
@@ -126,7 +67,6 @@ body {
     border-radius: 5px;
 }
 
-/* Opciones (colores, fuentes, fondo) */
 .color-options,
 .font-options,
 .background-options {
@@ -134,28 +74,20 @@ body {
     gap: 15px;
     margin-bottom: 10px;
 }
-/*  Estilos  */
-body {
-  font-family: Arial, sans-serif;
-  background: #fff;
-  color: #333;
-}
 
-/* Contenedor general */
+
 .configuracion {
   display: flex;
   flex-direction: column;
   max-width: 400px;
 }
 
-/* Titulos */
 .configuracion h3 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-/* Ubicacion */
 .opciones-ubicacion {
   display: flex;
   gap: 20px;
@@ -168,7 +100,6 @@ body {
   gap: 6px;
 }
 
-/* Cuadro gris */
 .opcion-ubicacion label {
   display: block;
   width: 60px;
@@ -179,7 +110,6 @@ body {
   cursor: pointer;
 }
 
-/* Franja base (solo tamaño y color, sin posición) */
 .opcion-ubicacion label::before {
   content: "";
   position: absolute;
@@ -188,7 +118,6 @@ body {
   height: 10px;
 }
 
-/* Variantes */
 .ubic-izquierda::before {
   top: 5px;
   left: 5px;
@@ -204,17 +133,14 @@ body {
   left: 5px;
 }
 
-/* Input radio escondido */
 .opcion-ubicacion input[type="radio"] {
   display: none;
 }
 
-/* Cuando está seleccionado */
 .opcion-ubicacion input[type="radio"]:checked + label {
   border-color: #333;
 }
 
-/* ====== OPCIONES DE FONDO ====== */
 .opciones-fondo {
   display: flex;
   gap: 15px;
@@ -227,13 +153,12 @@ body {
   gap: 6px;
 }
 
-/* Cuadro de fondo */
 .opcion-fondo label {
   display: block;
-  width: 50px;
-  height: 50px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+  width: 3rem;
+  height: 3rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.2rem;
   cursor: pointer;
 }
 .fondo-default {
@@ -248,33 +173,97 @@ body {
   background: lightcoral;
 }
 
-/* Input radio escondido */
 .opcion-fondo input[type="radio"] {
   display: none;
 }
 
-/* Cuando está seleccionado */
 .opcion-fondo input[type="radio"]:checked + label {
   border-color: #333;
 }
 
-
-
-
-/* Botón */
 #confirmar {
     width: 100%;
-    padding: 12px;
-    margin-top: 15px;
+    padding: 0.7rem;
+    margin-top: 1rem;
     background: #333;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     transition: background 0.3s;
 }
 
 #confirmar:hover {
     background: #555;
+}
+/* ========================
+   Celulares (<= 30em ~ 480px)
+   ======================== */
+@media screen and (max-width: 30em) {
+  body {
+    font-size: 70%;
+  }
+  .titulo{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+
+  }
+  .giftcard{
+    width: 90%;
+
+  }
+
+  .giftcard-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .contenedor-contacto h1 {
+    font-size: 2em;
+  }
+
+  .contenedor-contacto_principal {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contenedor-contacto_datos,
+  .contenedor-mensaje {
+    width: 90%;
+    margin: 1rem 0;
+  }
+
+
+}
+
+
+@media screen and (min-width: 50em) {
+  body {
+    font-size: 100%;
+  }
+
+  .titulo{
+    text-align: center;
+    padding: 0;
+  }
+
+  .giftcard-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+
+  .contenedor-contacto_principal {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .contenedor-contacto_datos,
+  .contenedor-mensaje {
+    width: 45%;
+    margin: 2rem;
+  }
+
 }

@@ -122,3 +122,52 @@ footer {
     width: 24px;
     height: 24px;
 }
+@media screen and (max-width: 30em) {
+  body {
+    font-size: 70%;
+  }
+
+  .navegacion-principal {
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0;
+  }
+
+  .search {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+ 
+
+  footer .footer-contenedor {
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
+
+@media screen and (min-width: 50em) {
+  body {
+    font-size: 100%;
+  }
+
+  .navegacion-principal {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .search {
+    width: 60%;
+    margin: 0 2rem;
+  }
+
+
+  
+
+  footer .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
