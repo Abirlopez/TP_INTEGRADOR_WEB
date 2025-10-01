@@ -44,7 +44,7 @@
 
 
 .contenedor-mensaje{
-       margin-left: 0em;
+    margin-left: 0em;
     margin-right: 10em;
     margin-top: 5em;
     margin-bottom: 5em;
@@ -70,12 +70,11 @@ textarea {
 }
 
   .boton-enviar{
-    background-color: rgb(128, 47, 15);
+    background-color: #007bff;
     border-radius: 0.5em;
     margin-bottom: 0.5em;
     font-size: 1em;
     width: 95%;
-
   }
 
 
