@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
+    <title>Inicio</title>
     <link rel="stylesheet" href="../css/contenidos.css">
 </head>
 
@@ -11,10 +11,10 @@
     <header>
         <div class="nav-background">
             <nav class="navegacion-principal contenedor sombreado">
-                <a href="../contenido.html">
+                <a href="../Paginas/inicio.html">
                     <img class="logo" src="../img/Logo.png" alt="logoTipo">
                 </a>
-              <div class="search">
+               <div class="search">
                     <span class="search-icon material-symbols-outlined"></span>
                     <input class="search-input" type="search" placeholder="Buscar">
                 </div>
@@ -23,38 +23,133 @@
                     <div><a href="contacto.html">Contacto</a></div>
                     <div><a href="calendario.html">Calendario</a></div>
                     <div><a href="giftcard.html">GiftCard</a></div>
+                    <div><a href="formulario.html">Formulario</a></div>
                 </div>
             </nav>
         </div>
     </header>
-    <main>
-        <h1>Bienvenido</h1>
-    </main>
-<footer>
+
+
+<main>
+        <h1 class="titulo-inicio">CURSOS DESTACADOS</h1>
+
+        <div class="cursos-disponibles">
+        <div class="tarjeta">
+  <img src="../img/curso_js.png" alt="Curso" class="curso-imagen">
+  <div class="curso-contenido">
+    <h3 class="curso-titulo">Curso de JavaScript</h3>
+    <p class="curso-descripcion">
+      Aprende JavaScript desde cero y crea tus propias aplicaciones web.
+    </p>
+    <a href="../Paginas/detalle_curso.html" class="curso-boton">Ver curso</a>
+  </div>
+</div>
+
+     <div class="tarjeta">
+  <img src="../img/curso_css.png" alt="Curso" class="curso-imagen">
+  <div class="curso-contenido">
+    <h3 class="curso-titulo">Curso de CSS</h3>
+    <p class="curso-descripcion">
+      Aprende CSS desde cero y diseña tus propias aplicaciones web.
+    </p>
+    <a href="#" class="curso-boton">Ver curso</a>
+  </div>
+</div>
+
+     <div class="tarjeta">
+  <img src="../img/curso_ia.png" alt="Curso" class="curso-imagen">
+  <div class="curso-contenido">
+    <h3 class="curso-titulo">Curso de Inteligencia Artificial</h3>
+    <p class="curso-descripcion">
+      Conoce distintas técnicas y conceptos relacionados a la construcción de sistemas inteligentes.
+    </p>
+    <a href="#" class="curso-boton">Ver curso</a>
+  </div>
+</div>
+</div>
+
+<div class="cursos-disponibles">
+  <div class="tarjeta">
+  <img src="../img/curso_excel.png" alt="Curso" class="curso-imagen">
+  <div class="curso-contenido">
+    <h3 class="curso-titulo">Curso de Excel</h3>
+    <p class="curso-descripcion">
+      Aprende Excel desde cero hasta nivel experto. Optimiza tu productividad personal y profesional.
+    </p>
+    <a href="#" class="curso-boton">Ver curso</a>
+  </div>
+</div>
+
+ <div class="tarjeta">
+  <img src="../img/curso_java.png" alt="Curso" class="curso-imagen">
+  <div class="curso-contenido">
+    <h3 class="curso-titulo">Curso de Java</h3>
+    <p class="curso-descripcion">
+      Iniciate desde cero. Con Java, desarrollarás aplicaciones versátiles, efectivas y ligeras.
+    </p>
+    <a href="#" class="curso-boton">Ver curso</a>
+  </div>
+</div>
+
+ <div class="tarjeta">
+  <img src="../img/curso_python.png" alt="Curso" class="curso-imagen">
+  <div class="curso-contenido">
+    <h3 class="curso-titulo">Curso de Python</h3>
+    <p class="curso-descripcion">
+     Curso de Python, Programación de código abierto y desarrollo de aplicaciones,
+    </p>
+    <a href="#" class="curso-boton">Ver curso</a>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+</main>
+
+
+
+<footer class="footer-principal">
     <div class="footer-contenedor">
+
         <div class="footer-seccion acerca">
-            <h2>Sobre nosotros</h2>
-            <p>Somos una empresa dedicada a proporcionar los mejores cursos en el campo de la teconologia</p>
-            <h2>Integrantes</h2>
-            <li class="integrantes">Agustin Roman Favarolo</li>
-       
+            <h2>INTEGRANTES</h2>
+            
+
+                <li>Favarolo Agustin</li>
+                <li>Lopez Abigail Ruth</li>
+                <li>Malagreca Tobias</li>
+                <li>Guerrero Nahuel</li>
+                <li>Peralta Ariel</li>
+
+            
+
         </div>
+
+        
         <div class="footer-seccion menu">
-            <h2>Menu</h2>
-            <ul>
+            <h2>MENU</h2>
+            
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Servicios</a></li>
                 <li><a href="#">Sobre Nosotros</a></li>
                 <li><a href="#">Contacto</a></li>
-            </ul>
+            
         </div>
+
         <div class="footer-seccion social">
-            <h2>Redes sociales</h2>
+            <h2>REDES SOCIALES</h2>
             <a href="#" class="social-icon"><img src="../img/facebook-icon.png" alt="Facebook"></a>
             <a href="#" class="social-icon"><img src="../img/twitter-icon.png" alt="Twitter"></a>
-            <a href="#" class="social-icon"><img src="../img/instragram-icon.jpeg" alt="Instagram"></a>
+            <a href="#" class="social-icon"><img src="../img/instragram-icon.png" alt="Instagram"></a>
         </div>
+
     </div>
 </footer>
+
+
 </body>
 </html>
