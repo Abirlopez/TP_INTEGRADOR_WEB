@@ -199,9 +199,7 @@
 }
 
 @media screen and (max-width: 30em) {
-  body {
-    font-size: 70%;
-  }
+
   .titulo{
     display: flex;
     justify-content: center;
