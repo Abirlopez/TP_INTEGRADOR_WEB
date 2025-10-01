@@ -49,12 +49,12 @@
 
  @media screen and (max-width: 30em) {
   .calendario-grid {
-    grid-auto-rows: 70px; /* un poquito más alto para que entre el texto */
+    grid-auto-rows: 70px; 
   }
 
   .dia {
     padding: 2px;
-    font-size: 0.8em; /* el número del día se mantiene legible */
+    font-size: 0.8em; 
   }
 
   .dia span {
@@ -78,7 +78,7 @@
     border-radius: 3px;
     text-align: center;
     line-height: 1.2;
-    max-height: 60%;        /* no se desborda del día */
+    max-height: 60%;      
   }
 }
 
