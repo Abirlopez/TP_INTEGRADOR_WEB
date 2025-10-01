@@ -75,7 +75,6 @@ footer {
     color: rgb(0, 0, 0);
     padding: 20px;
     text-align: center;
-    flex-shrink: 0;             /*Evita que el footer se encoja si no hay espacio (lo mas probable es que despues se pueda sacar)*/
 }
 
 .footer-contenedor {
@@ -91,6 +90,7 @@ footer {
     margin: 10px;
     min-width: 200px;
 }
+
 
 .footer-seccion h2 {
     margin-top: 0;
@@ -127,15 +127,17 @@ footer {
     font-size: 70%;
   }
 
-  .navegacion-principal {
+  .navegacion-principal, a {
     flex-direction: column;
     align-items: center;
-    padding: 1em 0;
+
+    font-size: large;
   }
+
 
   .search {
     width: 90%;
-    margin: 0 auto;
+    margin: 1em;
   }
 
  

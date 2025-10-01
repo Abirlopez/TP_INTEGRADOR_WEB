@@ -243,9 +243,7 @@ footer {
   }
 }
 
-/* ========================
-   Escritorio medio (>= 60em ~ 960px)
-   ======================== */
+
 @media screen and (min-width: 60em) {
   body {
     font-size: 100%;
@@ -262,7 +260,7 @@ footer {
   }
 
   .giftcard-container {
-    grid-template-columns: 1fr 1fr; /* dos columnas */
+    grid-template-columns: 1fr 1fr;
   }
 
   .contenedor-contacto_principal {

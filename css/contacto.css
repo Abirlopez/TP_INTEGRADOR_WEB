@@ -87,9 +87,6 @@ textarea {
 
 
 @media screen and (max-width: 30em) {
-    body {
-        font-size: 14px;
-    }
 
     h1 {
         font-size: 2em;
@@ -120,6 +117,21 @@ textarea {
         font-size: 15px;
     }
 
+
+}
+@media screen and (min-width: 50em) {
+ 
+
+  .contenedor-contacto_principal {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .contenedor-contacto_datos,
+  .contenedor-mensaje {
+    width: 45%;
+    margin: 2rem;
+  }
 
 }
 
