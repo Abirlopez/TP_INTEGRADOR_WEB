@@ -208,9 +208,6 @@ footer li {
     display: flex;
     flex-direction: column;
   }
-  .cursos-disponibles{
-    flex-direction: column;
-  }
 
 
 }
