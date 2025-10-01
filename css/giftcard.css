@@ -197,9 +197,7 @@
 #confirmar:hover {
     background: #555;
 }
-/* ========================
-   Celulares (<= 30em ~ 480px)
-   ======================== */
+
 @media screen and (max-width: 30em) {
   body {
     font-size: 70%;
@@ -265,4 +263,5 @@
     width: 45%;
     margin: 2rem;
   }
+}
 

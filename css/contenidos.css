@@ -173,6 +173,13 @@ footer li {
     flex-direction: column;
     align-items: center;
   }
+  .curso-info{
+    display: flex;
+    flex-direction: column;
+  }
+  .cursos-disponibles{
+    flex-direction: column;
+  }
 
 }
 
@@ -193,12 +200,18 @@ footer li {
   }
 
 
-  
-
   footer .footer-container {
     flex-direction: row;
     justify-content: space-between;
   }
+    .curso-info{
+    display: flex;
+    flex-direction: column;
+  }
+  .cursos-disponibles{
+    flex-direction: column;
+  }
+
 
 }
 
