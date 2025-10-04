@@ -16,6 +16,10 @@ html, body {
     box-sizing: border-box;
 
 }
+input[list]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
 .nav-background {
   background-color: #004085;
   padding: 0.5rem 0;
