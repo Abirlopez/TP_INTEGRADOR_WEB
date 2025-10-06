@@ -3,6 +3,35 @@
     margin: 0 auto;
 }
 
+.carrito{
+  width: 4rem;
+  height: 4rem;
+  margin-left: 0.5rem;
+}
+
+.menu-derecha{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+}
+
+.carrito img{
+  width: 100%;
+  height: 100%;
+}
+
+.unidades {
+    position: absolute;
+    top: 1.5em;
+    right: 3.3em;
+    background:#d3d3d3;
+    color: black;
+    padding: 0 1em;
+    font-size: 1em;
+    border-radius: 0.3em;
+}
+
 
 .contenedor-contacto {
     display: flex;
