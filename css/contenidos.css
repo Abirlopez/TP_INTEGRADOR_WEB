@@ -20,6 +20,19 @@ input[list]::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;
 }
+
+header{
+    position: fixed; 
+     z-index:1000;
+     top: 0;
+     left: 0;
+     width: 100%; 
+
+}
+
+main{
+  margin-top: 5.5rem;
+}
 .nav-background {
   background-color: #004085;
   padding: 0.5rem 0;
@@ -32,6 +45,7 @@ input[list]::-webkit-calendar-picker-indicator {
   max-width: 1200px;
   margin: auto;
   padding: 0 1rem;
+
 }
 
 .navegacion-principal a {
