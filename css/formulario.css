@@ -82,15 +82,6 @@ main{
   color: #007bff;
 }
 
-.container {
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
 .inscripcion h1 {
   margin-bottom: 1rem;
 }
@@ -100,10 +91,10 @@ main{
 }
 
 .Java {
-  border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 8px;
-  background: #fafafa;
+  display: flex;
+  gap: 5em;
 }
 
 .barra_insc {
@@ -131,6 +122,99 @@ h2 {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+}
+.formulario-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.inscripcion {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 1em;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.titulo-curso {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.fila-inscripcion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.fila-inscripcion input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.boton-eliminar {
+  background: #ccc;
+  border: none;
+  font-size: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.boton-agregar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+  padding: 0.6rem 1rem;
+  background: #f1f1f1;
+  border: 1px solid #aaa;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.precio-inscripcion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.precio {
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.boton-inscribirse {
+  background: #004085;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.boton-inscribirse:hover {
+  background: #0069d9;
 }
 
 .fondo-negro-contenedor {
@@ -219,6 +303,17 @@ h2 {
   .imagen-pago {
     width: 25%;
   }
+  .inscripcion{
+    width: auto;
+    height: auto;
+    margin-top: 10em;
+    align-items: center;
+  }
+  .fila-inscripcion{
+    flex-direction: column;
+  }
+
+  
 }
 
 

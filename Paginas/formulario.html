@@ -43,63 +43,47 @@
             </nav>
         </div>
     </header>
-
-    <div class="container">
+<main class="formulario-main">
         <section class="inscripcion">
-            <h1>Cursos Seleccionados</h1>
-    
-            <form id="alumnos-container">
-                <div id="alumno1" class="alumnos-container">
-                    <div class="Java">
-                        <h2>Inscripción a CURSO</h2>
-                        <div class="barra_insc">
-                            <input class="barra_insc-input" type="text" placeholder="Nombre" id="nombre1">
-                        </div>
-                        <div class="barra_insc">
-                            <input class="barra_insc-input" type="text" placeholder="Apellido" id="apellido1">
-                        </div>
-                        <div class="barra_insc">
-                            <input class="barra_insc-input" type="text" placeholder="DNI" id="dni1">
-                        </div>
-                        <div class="barra_insc">
-                            <input class="barra_insc-input" type="email" placeholder="ejemplo@hotmail.com" id="email1">
-                        </div>
-                        <div class="barra_insc">
-                            <input class="barra_insc-input" type="tel" placeholder="Teléfono" id="telefono1">
-                        </div>
-                        <div>
-                            <label>Curso: </label>
-                            <select id="curso1">
-                                <option value="0">-Seleccione-</option>
-                                <option value="Java">Java</option>
-                                <option value="HTML y CSS">HTML y CSS</option>
-                                <option value="Python">Python</option>
-                            </select>
-                        </div>
-                        <h2>Precio: $1000</h2>
-                        
-                    </div>
-                    
-                </div>
-            </form>
+    <h1 class="titulo-curso">TÍTULO CURSO</h1>
+    <h3>INSCRIPCIÓN</h3>
 
-            <div class="infomracion_cursos">
-                <div class="fondo-negro-contenedor">
-                    <div class="fondo-negro">
-                        <h2 class="precio-total">Precio Total:</h2>
-                        <span>$1000</span>
-                    </div>
-                </div>
-                
-                <div class="fondo-negro-contenedor">
-                    <div class="fondo-negro">
-                        <h2 class="precio-total">Contador de alumnos:</h2>
-                        <span>1</span>
-                    </div>
-                </div>
-            </div>
+    <form id="formulario-inscripcion" class="" action="../Paginas/index.html" method="get">
+      <div class="fila-inscripcion">
+        <input type="text" placeholder="Nombre">
+        <input type="text" placeholder="Apellido">
+        <input type="text" placeholder="Telefono">
+        <button type="button" class="boton-eliminar">-</button>
+      </div>
+
+      <div class="fila-inscripcion">
+        <input type="text" placeholder="Nombre">
+        <input type="text" placeholder="Apellido">
+        <input type="text" placeholder="Telefono">
+
+        <button type="button" class="boton-eliminar">-</button>
+      </div>
+
+      <div class="fila-inscripcion">
+        <input type="text" placeholder="Nombre">
+        <input type="text" placeholder="Apellido">
+        <input type="text" placeholder="Telefono">
+        <button type="button" class="boton-eliminar">-</button>
+      </div>
+
+      <div class="acciones-formulario">
+        <button type="button" class="boton-agregar">+ Agregar Persona</button>
+      </div>
+
+      <div class="precio-inscripcion">
+        <span class="precio">$000.-</span>
+        <button type="submit" class="boton-inscribirse">INSCRIBIRSE</button>
+      </div>
+    </form>
+
         </section>
     </div>
+   </main> 
 
 <footer class="footer-principal">
     <div class="footer-contenedor">
@@ -125,7 +109,7 @@
                 <li><a href="../Paginas/index.html">Inicio</a></li>
                 <li><a href="#">Servicios</a></li>
                 <li><a href="#">Sobre Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="../Paginas/contacto.html">Contacto</a></li>
             
         </div>
 
