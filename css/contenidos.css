@@ -427,11 +427,15 @@ justify-content: space-around;
   text-decoration: none;
   border-radius: 0.3em;
   font-size: 1em;
- ;
+ 
 }
 
 .curso-boton:hover {
   background-color: #0056b3;
+}
+
+.cursos-total{
+  margin-top: 35%;
 }
 
 footer{
