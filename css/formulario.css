@@ -1,3 +1,5 @@
+/* ──────────────── ESTRUCTURA GENERAL ──────────────── */
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
@@ -5,45 +7,13 @@ body {
   color: #333;
 }
 
+/* ──────────────── HEADER / NAVEGACIÓN ──────────────── */
+
 .nav-background {
   background: #004085;
   padding: 0.5rem 0;
-  
 }
 
-.carrito{
-  width: 4rem;
-  height: 4rem;
-  margin-left: 0.5rem;
-}
-
-.menu-derecha{
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  
-}
-
-.carrito img{
-  width: 100%;
-  height: 100%;
-}
-
-.unidades {
-    position: absolute;
-    top: 1.5em;
-    right: 3.3em;
-    background:#d3d3d3;
-    color: black;
-    padding: 0 1em;
-    font-size: 1em;
-    border-radius: 0.3em;
-}
-
-
-main{
-  margin-top: 5.5rem;
-}
 .navegacion-principal {
   display: flex;
   align-items: center;
@@ -51,12 +21,39 @@ main{
   max-width: 1200px;
   margin: auto;
   padding: 0 1rem;
-  
 }
 
 .logo {
   width: 10rem;
   float: left;
+}
+
+.menu-derecha {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.carrito {
+  width: 4rem;
+  height: 4rem;
+  margin-left: 0.5rem;
+}
+
+.carrito img {
+  width: 100%;
+  height: 100%;
+}
+
+.unidades {
+  position: absolute;
+  top: 1.5em;
+  right: 3.3em;
+  background: #d3d3d3;
+  color: black;
+  padding: 0 1em;
+  font-size: 1em;
+  border-radius: 0.3em;
 }
 
 .search {
@@ -71,7 +68,6 @@ main{
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
-  padding: 0.5rem;
 }
 
 .search-icon {
@@ -82,47 +78,12 @@ main{
   color: #007bff;
 }
 
-.inscripcion h1 {
-  margin-bottom: 1rem;
+/* ──────────────── FORMULARIO / INSCRIPCIÓN ──────────────── */
+
+main {
+  margin-top: 5.5rem;
 }
 
-.alumnos-container {
-  margin-bottom: 2rem;
-}
-
-.Java {
-  padding: 1rem;
-  border-radius: 8px;
-  display: flex;
-  gap: 5em;
-}
-
-.barra_insc {
-  margin-bottom: 0.5rem;
-}
-
-.barra_insc-input,
-select {
-  width: 100%;
-  padding: 0.4rem;
-  border: 1px solid #bbb;
-  border-radius: 5px;
-}
-
-.barra_insc-input:focus,
-select:focus {
-  outline: 2px solid #4c8bf5;
-}
-
-h2 {
-  margin: 0.5rem 0;
-}
-
-.infomracion_cursos {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
 .formulario-main {
   display: flex;
   justify-content: center;
@@ -136,11 +97,15 @@ h2 {
   padding: 2rem;
   border-radius: 1rem;
   margin-top: 1em;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.inscripcion h1 {
+  margin-bottom: 1rem;
 }
 
 .titulo-curso {
@@ -217,6 +182,47 @@ h2 {
   background: #0069d9;
 }
 
+/* ──────────────── CURSOS / INFORMACIÓN EXTRA ──────────────── */
+
+.alumnos-container {
+  margin-bottom: 2rem;
+}
+
+.Java {
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  gap: 5em;
+}
+
+.barra_insc {
+  margin-bottom: 0.5rem;
+}
+
+.barra_insc-input,
+select {
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+.barra_insc-input:focus,
+select:focus {
+  outline: 2px solid #4c8bf5;
+}
+
+h2 {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.infomracion_cursos {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .fondo-negro-contenedor {
   flex: 1;
   min-width: 200px;
@@ -243,11 +249,12 @@ h2 {
   padding: 0.3rem 0;
 }
 
-.nombre--titulo, .dni--titulo {
+.nombre--titulo,
+.dni--titulo {
   font-weight: bold;
 }
 
-
+/* ──────────────── MEDIOS DE PAGO ──────────────── */
 
 .medios-pago {
   display: flex;
@@ -260,17 +267,111 @@ h2 {
   height: auto;
 }
 
+/* ──────────────── CURSOS RELACIONADOS ──────────────── */
+
+.cursos-disponibles {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  border: 0.1em solid #ccc;
+  border-radius: 0.5em;
+  overflow: hidden;
+  width: 25%;
+  margin: 1em;
+  box-shadow: 0 0.3em 0.5em rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.curso-imagen {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.curso-contenido {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.curso-titulo {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.curso-descipcion {
+  font-size: 1em;
+  color: #555;
+}
+
+.curso-boton {
+  display: inline-block;
+  text-align: center;
+  padding: 0.5em 1em;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.3em;
+  font-size: 1em;
+}
+
+.curso-boton:hover {
+  background-color: #0056b3;
+}
+
+/* ──────────────── FOOTER ──────────────── */
+
+footer {
+  background-color: #d3d3d3;
+}
+
+.footer-contenedor {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-social {
+  width: 20%;
+}
+
+.footer-menu {
+  width: 30%;
+}
+
+.footer-datos {
+  width: 30%;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer a {
+  color: black;
+  text-decoration: none;
+}
+
+.footer-social img {
+  width: 5%;
+  height: auto;
+}
+
+/* ──────────────── RESPONSIVE ──────────────── */
+
 @media (max-width: 768px) {
   .menu-horizontal {
     display: none;
   }
-
-
 }
 
 @media screen and (max-width: 30em) {
   body {
-    font-size: 70%; 
+    font-size: 70%;
   }
 
   .navegacion-principal {
@@ -299,23 +400,21 @@ h2 {
     margin: 1rem 0;
   }
 
-
   .imagen-pago {
     width: 25%;
   }
-  .inscripcion{
+
+  .inscripcion {
     width: auto;
     height: auto;
     margin-top: 10em;
     align-items: center;
   }
-  .fila-inscripcion{
+
+  .fila-inscripcion {
     flex-direction: column;
   }
-
-  
 }
-
 
 @media screen and (min-width: 60em) {
   body {
@@ -346,104 +445,4 @@ h2 {
     width: 45%;
     margin: 2rem;
   }
-
-}
-
-
-h2 {
-    text-align: center;
-}
-.cursos-disponibles{
-display: flex;
-justify-content: space-around;
-}
-
-
-.tarjeta {
-  display: flex;
-  flex-direction: column;      
-  border: 0.1em solid #ccc;   
-  border-radius: 0.5em;
-  overflow: hidden;
-  width: 25%;                  
-  margin: 1em;                 
-  box-shadow: 0 0.3em 0.5em rgba(0,0,0,0.1);
-  background-color: white;
-}
-
-
-.curso-imagen {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-
-.curso-contenido {
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-}
-
-.curso-titulo {
-  font-size: 1.2em;
-  margin: 0;
-}
-
-.curso-descipcion {
-  font-size: 1em;
-  color: #555;
-}
-
-.curso-boton {
-  display: inline-block;
-  text-align: center;
-  padding: 0.5em 1em;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 0.3em;
-  font-size: 1em;
- ;
-}
-
-.curso-boton:hover {
-  background-color: #0056b3;
-}
-
-footer{
-    background-color: #d3d3d3;
-}
-
-.footer-contenedor{
-     display: flex;
-    justify-content: space-around;
-
-}
-
-.footer-social{
-    width: 20%;
-}
-
-.footer-menu{
-    width: 30%;
-}
-
-.footer-datos{
-    width: 30%;
-}
-
-footer ul{
-  list-style: none;       
-}
-
-footer a{
-    color:black;
-    text-decoration: none;  
-}
-
-.footer-social img{
-    width: 5%;
-    height: auto;
 }
