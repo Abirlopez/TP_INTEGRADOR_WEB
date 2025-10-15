@@ -1,17 +1,61 @@
+/* ──────────────── CABECERA / NAVEGACIÓN ──────────────── */
+
+.unidades {
+  position: absolute;
+  top: 1.5em;
+  right: 3.3em;
+  background: #d3d3d3;
+  color: black;
+  padding: 0 1em;
+  font-size: 1em;
+  border-radius: 0.3em;
+}
+
+/* ──────────────── CONTENIDO PRINCIPAL ──────────────── */
+
+.titulo-inicio {
+  padding-top: 0.5em;
+  font-size: 1.8rem;
+}
+
+.curso-foto {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.curso-detalle {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  text-align: center;
+}
+
+.total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  padding: 2rem 0;
+  border-top: 0.2rem solid #ccc;
+  margin-top: 2rem;
+}
+
+.texto-apagar {
+  padding-right: 0.3rem;
+}
+
+.texto-apagar2 {
+  padding-left: 0.3rem;
+}
+
 .mensaje-pago {
   text-align: center;
   padding: 4rem 1rem;
 }
 
-.total {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.5rem;
-  padding: 2rem 0;
-  border-top: 2px solid #ccc;
-  margin-top: 2rem;
-}
+/* ──────────────── BOTONES / ACCIONES ──────────────── */
+
 .btn-pago {
   display: inline-block;
   padding: 10px 20px;
@@ -29,15 +73,6 @@
 
 .btn-pago-wrapper {
   text-align: center;
-  margin-top: 2rem;
-}
-.curso-foto{
-    display: flex;
-    justify-content: space-evenly;
-}
-.curso-detalle{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: space-around;
+  margin-top: 0rem;
+  margin-bottom: 2rem;
 }
