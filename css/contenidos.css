@@ -263,6 +263,29 @@ h2 {
   background-color: #0056b3;
 }
 
+/* ──────────────── MEDIOS DE PAGO ──────────────── */
+
+.medios-pago {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1.5rem; 
+  flex-wrap: wrap;
+  padding: 2rem 0;
+}
+
+.medios-pago img {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.medios-pago img:hover {
+  transform: scale(1.5);
+}
+
+
 /* ──────────────── FOOTER ──────────────── */
 
 footer {
