@@ -7,6 +7,8 @@ const fuenteOpciones = document.querySelectorAll('input[name="fuente"]');
 const inputMonto = document.getElementById("monto");
 const previewMonto = document.getElementById("preview-monto");
 
+
+
 const ubicacionOpciones = document.querySelectorAll('input[name="ubicacion"]');
 
 const fondoOpciones = document.querySelectorAll('input[name="fondo"]');
@@ -41,6 +43,8 @@ ubicacionOpciones.forEach(op => {
         previewMonto.style.top = "";
         previewMonto.style.right = "";
         previewMonto.style.left = "";
+        previewMonto.style.bottom = "";
+        previewMonto.style.transform = "";
 
         switch (op.id) {
             case "ubic1":
@@ -54,15 +58,20 @@ ubicacionOpciones.forEach(op => {
                 break;
 
             case "ubic3":
-                previewMonto.style.top = "0.2em";
-                previewMonto.style.left = "50%";
-                previewMonto.style.transform = "translateX(-50%)";
+                previewMonto.style.bottom = "0.2em";
+                previewMonto.style.left = "0.2em";
                 break;
         }
     });
 });
+window.addEventListener("DOMContentLoaded", () => {
+    const seleccionado = document.querySelector('input[name="ubicacion"]:checked');
+    if (seleccionado) {
+        seleccionado.dispatchEvent(new Event("change"));
+    }
+});
 
-// FONDOS
+
 fondoOpciones.forEach(op => {
     op.addEventListener("change", () => {
         if (op.id === "fondo1") giftcard.style.backgroundColor = "gray";
@@ -71,7 +80,6 @@ fondoOpciones.forEach(op => {
     });
 });
 
-// GUARDAR EN CARRITO
 btnConfirmar.addEventListener("click", () => {
     const destinatario = inputDestinatario.value;
     const monto = inputMonto.value;
