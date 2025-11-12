@@ -6,13 +6,13 @@ if (contadorCarrito) {
 
     if (!cantidadCursos) {
         cantidadCursos = 0;
-        sessionStorage.setIte('cantidadCursos', cantidadCursos);
+        sessionStorage.setItem('cantidadCursos', cantidadCursos);
     }
 
     contadorCarrito.textContent = cantidadCursos;
 }
 
-const botonesInscribirse = document.querySelectorAll('.btn-inscribirse, .curso-boton');
+const botonesInscribirse = document.querySelectorAll('.btn-inscribirse');
 
 botonesInscribirse.forEach(boton => {
     boton.addEventListener('click', () => {

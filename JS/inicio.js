@@ -15,24 +15,7 @@ if (!cantidadCursos) {
 // muestro el valor actual del contador
 contadorCarrito.textContent = cantidadCursos;
 
-// selecciono todos los botones de "VER CURSO"
-const botonesCurso = document.querySelectorAll('.curso-boton');
 
-// recorro los botones y les doy la función de sumar al contador
-botonesCurso.forEach(boton => {
-  boton.addEventListener('click', () => {
-    // agarro el valor actual del contador y lo paso a número
-    cantidadCursos = parseInt(sessionStorage.getItem('cantidadCursos'));
-
-    cantidadCursos++; // sumo 1
-
-    // actualizo el valor en sessionStorage
-    sessionStorage.setItem('cantidadCursos', cantidadCursos);
-
-    // muestro el nuevo número en el contador
-    contadorCarrito.textContent = cantidadCursos;
-  });
-});
 
 
 // SLIDER 
