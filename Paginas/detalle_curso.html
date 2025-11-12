@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="../css/contenidos.css">
 </head>
 
+
+<!-- MODAL DE FELICITACIÓN -->
+<div id="modal-felicitacion" class="modal-felicitacion">
+    <div class="modal-contenido">
+        <span id="cerrar-modal" class="cerrar-modal">&times;</span>
+        <h2>¡Felicitaciones!</h2>
+        <p>Te inscribiste exitosamente en el curso.</p>
+        <p id="detalle-curso"></p>
+        <button id="aceptar-modal" class="boton-aceptar">Aceptar</button>
+    </div>
+</div>
+
+
+
 <body id="body">
     <header>
         <div class="nav-background">
@@ -14,18 +28,18 @@
                 <a href="../index.html">
                     <img class="logo" src="../img/Logo.png" alt="logoTipo">
                 </a>
-
+                
                 <div class="search">
                     <label for="buscador-opciones"></label>
                     <input class="search-input" type="search" placeholder="Buscar" list="buscador-historial" id="buscador-opciones">
-
+                    
                     <datalist id="buscador-historial">
                         <option value="JavaScript"></option>
                         <option value="HTML5"></option>
                         <option value="CSS"></option>
                     </datalist>
                 </div>
-
+                
                 <div class="menu-derecha">
                     <div>
                         <div><a href="contacto.html">Contacto</a></div>
@@ -33,24 +47,29 @@
                         <div><a href="giftcard.html">GiftCard</a></div>
                         <div><a href="formulario.html">Formulario</a></div>
                     </div>
-
+                    
                     <div class="carrito">
                         <a href="../Paginas/carrito.html">
                             <img class="logo" src="../img/carrito-de-compras (1).png" alt="logoCarrito">
                             <span class="unidades" id="preview-unidades">5</span>
                         </a>
                     </div>
+                    <div class="logo-usuario">
+                        <a href="../Paginas/login.html">
+                            <img class= "logo" src="../img/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.png" alt="logo-usuario">
+                        </a>
+                    </div>
                 </div>
             </nav>
         </div>
     </header>
-
+    
     <main class="curso">
         <section class="curso-info">
             <div class="curso-foto">
                 <img src="../img/curso_js.png" alt="Foto del curso">
             </div>
-
+            
             <div class="curso-detalle">
                 <p class="curso-detalle-titulo"><strong>PROFESIONAL EN JAVASCRIPT </strong></p>
                 <p><strong>Valor:</strong> U$D 65</p>
@@ -60,7 +79,7 @@
                 <a class="btn-inscribirse" href="formulario.html">INSCRIBIRSE</a>
             </div>
         </section>
-
+        
         <section class="contenidos">
             <h3>Contenidos por clase</h3>
             <div class="acordeon">
@@ -71,7 +90,7 @@
                         <li><strong>1.2</strong> Variables, Tipos de Datos y Operadores</li>
                     </ul>
                 </details>
-
+                
                 <details>
                     <summary>Unidad 2</summary>
                     <ul>
@@ -79,7 +98,7 @@
                         <li><strong>2.2</strong> Bucles: for, while y do...while</li>
                     </ul>
                 </details>
-
+                
                 <details>
                     <summary>Unidad 3</summary>
                     <ul>
@@ -88,7 +107,7 @@
                         <li><strong>3.3</strong> Objetos y Programación Orientada a Objetos</li>
                     </ul>
                 </details>
-
+                
                 <details>
                     <summary>Unidad 4</summary>
                     <ul>
@@ -96,7 +115,7 @@
                         <li><strong>4.2</strong> Eventos en JavaScript</li>
                     </ul>
                 </details>
-
+                
                 <details>
                     <summary>Unidad Final</summary>
                     <ul>
@@ -106,7 +125,7 @@
                 </details>
             </div>
         </section>
-
+        
         <section class="docente">
             <h3>Docente</h3>
             <div class="docente-info">
@@ -118,9 +137,9 @@
                 </div>
             </div>
         </section>
-
+        
         <h2>OTROS CURSOS</h2>
-
+        
         <div class="cursos-disponibles">
             <div class="tarjeta-cursos">
                 <img src="../img/curso_excel.png" alt="Curso" class="curso-imagen">
@@ -132,7 +151,7 @@
                     <a href="#" class="curso-boton">Ver curso</a>
                 </div>
             </div>
-
+            
             <div class="tarjeta-cursos">
                 <img src="../img/curso_java.png" alt="Curso" class="curso-imagen">
                 <div class="curso-contenido">
@@ -143,7 +162,7 @@
                     <a href="#" class="curso-boton">Ver curso</a>
                 </div>
             </div>
-
+            
             <div class="tarjeta-cursos">
                 <img src="../img/curso_python.png" alt="Curso" class="curso-imagen">
                 <div class="curso-contenido">
@@ -156,7 +175,7 @@
             </div>
         </div>
     </main>
-
+    
     <footer class="footer-principal">
         <div class="footer-contenedor">
             <div class="footer-seccion acerca">
@@ -167,7 +186,7 @@
                 <li>Guerrero Nahuel</li>
                 <li>Peralta Ariel</li>
             </div>
-
+            
             <div class="footer-seccion menu">
                 <h2>MENU</h2>
                 <li><a href="../index.html">Inicio</a></li>
@@ -176,7 +195,7 @@
                 <li><a href="../Paginas/giftcard.html">Giftcard</a></li>
                 <li><a href="../Paginas/formulario.html">Formulario</a></li>
             </div>
-
+            
             <div class="footer-seccion social">
                 <h2>REDES SOCIALES</h2>
                 <a href="#" class="social-icon"><img src="../img/facebook-icon.png" alt="Facebook"></a>
@@ -185,5 +204,7 @@
             </div>
         </div>
     </footer>
+    <script src="../JS/contadorCarrito.js"></script>
+    <script src="../JS/detalle.js" ></script>
 </body>
 </html>

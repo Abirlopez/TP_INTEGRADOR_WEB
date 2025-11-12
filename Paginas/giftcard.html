@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/giftcard.css">
 </head>
 
+
 <body id="body">
     <header>
         <div class="nav-background">
@@ -25,7 +26,7 @@
                         <option value="CSS"></option>
                     </datalist>
                 </div>
-
+                
                 <div class="menu-derecha">
                     <div>
                         <div><a href="contacto.html">Contacto</a></div>
@@ -33,21 +34,26 @@
                         <div><a href="giftcard.html">GiftCard</a></div>
                         <div><a href="formulario.html">Formulario</a></div>
                     </div>
-
+                    
                     <div class="carrito">
                         <a href="../Paginas/carrito.html">
                             <img class="logo" src="../img/carrito-de-compras (1).png" alt="logoCarrito">
                             <span class="unidades" id="preview-unidades">5</span>
                         </a>
                     </div>
+                    <div class="logo-usuario">
+                        <a href="../Paginas/login.html">
+                            <img class= "logo" src="../img/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.png" alt="logo-usuario">
+                        </a>
+                    </div>
                 </div>
             </nav>
         </div>
     </header>
-
+    
     <main>
         <h1 class="titulo">Personalización de Giftcard</h1>
-
+        
         <section class="giftcard-container">
             <div class="giftcard-preview">
                 <div class="giftcard" id="giftcard">
@@ -57,11 +63,11 @@
                 </div>
                 <p class="preview-label">VISTA PREVIA DE RESULTADO DE PERSONALIZACIÓN</p>
             </div>
-
+            
             <div class="giftcard-options">
                 <label for="nombre">Nombre Destinatario</label>
                 <input type="text" id="nombre" placeholder="Nombre Destinatario">
-
+                
                 <label>Color</label>
                 <div class="color-options">
                     <label>
@@ -77,7 +83,7 @@
                         Azul
                     </label>
                 </div>
-
+                
                 <label>Tamaño de fuente</label>
                 <div class="font-options">
                     <label>
@@ -101,10 +107,10 @@
                         60px
                     </label>
                 </div>
-
+                
                 <label for="monto">$ Monto</label>
                 <input type="number" id="monto" placeholder="0000">
-
+                
                 <div class="configuracion">
                     <h3>Ubicación</h3>
                     <div class="opciones-ubicacion">
@@ -121,7 +127,7 @@
                             <label for="ubic3" class="ubic-arriba"></label>
                         </div>
                     </div>
-
+                    
                     <h3>Fondo</h3>
                     <div class="opciones-fondo">
                         <div class="opcion-fondo">
@@ -138,12 +144,12 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <button id="confirmar">CONFIRMAR</button>
             </div>
         </section>
     </main>
-
+    
     <footer class="footer-principal">
         <div class="footer-contenedor">
             <div class="footer-seccion acerca">
@@ -154,7 +160,7 @@
                 <li>Guerrero Nahuel</li>
                 <li>Peralta Ariel</li>
             </div>
-
+            
             <div class="footer-seccion menu">
                 <h2>MENU</h2>
                 <li><a href="../index.html">Inicio</a></li>
@@ -163,7 +169,7 @@
                 <li><a href="../Paginas/giftcard.html">Giftcard</a></li>
                 <li><a href="../Paginas/formulario.html">Formulario</a></li>
             </div>
-
+            
             <div class="footer-seccion social">
                 <h2>REDES SOCIALES</h2>
                 <a href="#" class="social-icon"><img src="../img/facebook-icon.png" alt="Facebook"></a>
@@ -172,7 +178,8 @@
             </div>
         </div>
     </footer>
-<script src="../JS/giftcards.js"></script>
+    <script src="../JS/giftcards.js"></script>
+    <script src="../JS/contadorCarrito.js" ></script>
 </body>
 </html>
 </html>
