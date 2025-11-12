@@ -56,6 +56,17 @@ header {
   width: 10rem;
 }
 
+.logo-usuario {
+  width: 4rem;
+  height: 4rem;
+  
+}
+
+.logo-usuario img {
+    width: 100%;
+  height: 100%;
+}
+
 .menu-derecha {
   display: flex;
   align-items: center;
@@ -74,14 +85,17 @@ header {
 }
 
 .unidades {
-  position: absolute;
-  top: 1.5em;
-  right: 3.3em;
+  position:absolute;
   background: #d3d3d3;
   color: black;
   padding: 0 1em;
   font-size: 1em;
   border-radius: 0.3em;
+  cursor: pointer;
+}
+
+.unidades:hover {
+  transform: scale(1.2);
 }
 
 .search {
@@ -351,37 +365,63 @@ footer a {
   height: auto;
 }
 
-/* ──────────────── SLIDER / SECCIONES EXTRA ──────────────── */
-
-.slider-fijo {
+/* ──────────────── SLIDER ──────────────── */
+.slider {
   position: relative;
-  width: 100vw;
-  height: 500px;
+  max-width: 100%;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
   text-align: center;
-  margin: 0;
-  padding: 0;
+  background-color: #D5E7F2;
+  color: #000000;
+  padding-bottom: 10px;
 }
 
-.slider-fijo .imagen-fija {
-  position: absolute;
-  inset: 0;
+.slides {
+  position: relative;
+  height: 400px;
+}
+
+
+.slide {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  filter: brightness(60%);
-  z-index: 0;
+  object-fit: cover;  /* Ajusta la imagen sin deformarla */
+  display: none;      /* Solo se muestra la activa */
 }
 
-.slider-fijo h2 {
-  position: relative;
-  z-index: 1;
-  font-size: 2rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+
+.slide.active {
+  display: block;
+}
+
+
+.controles {
+  position: absolute;          /* Los colocamos dentro del slider */
+  bottom: 20px;                /* Un poco arriba del borde inferior */
+  left: 50%;                   /* Centramos horizontalmente */
+  transform: translateX(-50%); /* Ajuste perfecto al centro */
+
+  display: flex;               /* Usamos flexbox para centrar los puntos */
+  justify-content: center;     /* Centrado horizontal */
+  align-items: center;         /* Centrado vertical */
+  gap: 8px;                    /* Separación entre puntos */
+}
+
+
+.dot {
+  height: 12px;
+  width: 12px;
+  background-color: #003b60;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+
+.dot.active {
+  background-color: #0081d1;
+  transform: scale(1.4); /* Aumenta el tamaño 40% sin romper el flujo */
 }
 
 /* ──────────────── PASOS / INSCRIPCIÓN ──────────────── */
@@ -437,6 +477,59 @@ footer a {
   color: #555;
   line-height: 1.4;
   margin: 0;
+}
+
+/* ──────────────── MODAL FELICITACIÓN ──────────────── */
+.modal-felicitacion {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido {
+  background-color: #fff;
+  padding: 25px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  text-align: center;
+  max-width: 400px;
+  animation: aparecer 0.4s ease;
+}
+
+@keyframes aparecer {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.cerrar-modal {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+}
+
+.boton-aceptar {
+  margin-top: 15px;
+  padding: 10px 25px;
+  background-color: #0074d9;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.boton-aceptar:hover {
+  background-color: #005fa3;
 }
 
 /* ──────────────── RESPONSIVE ──────────────── */

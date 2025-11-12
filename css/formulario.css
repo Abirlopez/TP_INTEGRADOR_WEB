@@ -46,14 +46,17 @@ body {
 }
 
 .unidades {
-  position: absolute;
-  top: 1.5em;
-  right: 3.3em;
+  position:absolute;
   background: #d3d3d3;
   color: black;
   padding: 0 1em;
   font-size: 1em;
   border-radius: 0.3em;
+  cursor: pointer;
+}
+
+.unidades:hover {
+  transform: scale(1.2);
 }
 
 .search {
@@ -181,6 +184,45 @@ main {
 .boton-inscribirse:hover {
   background: #0069d9;
 }
+
+.tipo-inscripcion {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.boton-eliminar {
+  background-color: #ff4444;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  width: 30px;
+  height: 30px;
+  transition: background-color 0.3s;
+}
+
+.boton-eliminar:hover {
+  background-color: #cc0000;
+}
+
+.boton-agregar {
+  background-color: #0074d9;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.boton-agregar:hover {
+  background-color: #005fa3;
+}
+
 
 /* ──────────────── CURSOS / INFORMACIÓN EXTRA ──────────────── */
 

@@ -24,14 +24,17 @@ main {
 }
 
 .unidades {
-  position: absolute;
-  top: 1.5em;
-  right: 3.3em;
+  position:absolute;
   background: #d3d3d3;
   color: black;
   padding: 0 1em;
   font-size: 1em;
   border-radius: 0.3em;
+  cursor: pointer;
+}
+
+.unidades:hover {
+  transform: scale(1.2);
 }
 
 /* ──────────────── GIFT CARD PRINCIPAL ──────────────── */
