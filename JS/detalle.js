@@ -1,37 +1,108 @@
-// ==== MODAL DE FELICITACIÓN ====
+// Inicializo el contador en el header
+// agarro el elemento del contador en el header
+const contadorCarrito = document.getElementById('preview-unidades');
 
-// agarro todos los elementos que necesito del modal
-const modal = document.getElementById('modal-felicitacion');
-const cerrarModal = document.getElementById('cerrar-modal');
-const aceptarModal = document.getElementById('aceptar-modal');
-const botonInscribirse = document.querySelector('.btn-inscribirse');
-const detalleCurso = document.getElementById('detalle-curso');
+// si ya hay algo guardado en sessionStorage, lo uso
+let cantidadCursos = sessionStorage.getItem('cantidadCursos');
 
-// si existe el botón de inscribirse, lo meto el evento
-if (botonInscribirse) {
-  botonInscribirse.addEventListener('click', e => {
-    e.preventDefault(); // cancelo el comportamiento por defecto (redirigir)
-
-    // muestro el modal (flex para centrar)
-    modal.style.display = 'flex';
-
-    // agrego la info del curso dentro del modal
-    detalleCurso.textContent = 'Curso de JavaScript — Duración: 30 horas — Valor: U$D 65';
-  });
+// si no hay nada, lo creo desde cero
+if (!cantidadCursos) {
+    cantidadCursos = 0;
+    sessionStorage.setItem('cantidadCursos', cantidadCursos);
+}
+// muestro el valor actual del contador
+if(contadorCarrito) {
+    contadorCarrito.textContent = cantidadCursos;
 }
 
-// cuando toca la X, cierro el modal
-cerrarModal.addEventListener('click', () => {
-  modal.style.display = 'none';
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Metodo para buscar y obtener el curso seleccionado
+    const urlParams = new URLSearchParams(window.location.search);
+    const cursoId = parseInt(urlParams.get('id')); 
+
+    if (isNaN(cursoId)) return;
+
+    const cursosJSON = localStorage.getItem('cursos');
+    if (!cursosJSON) return;
+
+    const cursos = JSON.parse(cursosJSON);
+    const cursoActual = cursos.find(curso => curso.id === cursoId);
+
+    if (!cursoActual) return;
+
+    // Carga de datos para la pagina
+
+    const botonInscribirse = document.getElementById('btn-inscribirse');
+
+    document.querySelector('title').textContent = `${cursoActual.titulo}`;   
+    document.getElementById('curso-titulo-detalle').textContent = `${cursoActual.titulo.toUpperCase()}`;
+    document.getElementById('curso-valor-detalle').textContent = `U$D ${cursoActual.precio}`;
+    document.getElementById('curso-duracion-detalle').textContent = '30 Horas'; 
+    document.getElementById('curso-desc-detalle').textContent = cursoActual.descripcion;
+        const imgDetalle = document.getElementById('curso-imagen-detalle');    
+          imgDetalle.src = `../${cursoActual.imagen}`;
+          imgDetalle.alt = `Foto del ${cursoActual.titulo}`;
+
+    // Metodo para el carrito y el modal
+
+    const modal = document.getElementById('modal-felicitacion');
+    const cerrarModal = document.getElementById('cerrar-modal');
+    const aceptarModal = document.getElementById('aceptar-modal');
+    const detalleCursoModal = document.getElementById('detalle-curso');
+    
+    
+    function agregarACarrito(curso) {
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        
+        const cursoExistenteIndex = carrito.findIndex(item => item.id === curso.id);
+
+        if (cursoExistenteIndex !== -1) {
+            carrito[cursoExistenteIndex].cantidad += 1;
+        } else {
+            carrito.push({
+                id: curso.id,
+                titulo: curso.titulo,
+                precio: curso.precio,
+                imagen: curso.imagen,
+                cantidad: 1
+            });
+        }
+        
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        
+        // Actualizar el contador de unidades en sessionStorage
+        let cantidadCursos = parseInt(sessionStorage.getItem('cantidadCursos')) || 0;
+        cantidadCursos += 1;
+        sessionStorage.setItem('cantidadCursos', cantidadCursos);
+        
+    }
+
+if (botonInscribirse) {
+    botonInscribirse.addEventListener('click', e => {
+        e.preventDefault(); 
+        
+        // Añade el curso al carrito
+        agregarACarrito(cursoActual); 
+        
+        // Muestra el modal con la descripcion
+        detalleCursoModal.textContent = `${cursoActual.titulo} — Valor: U$D ${cursoActual.precio}`;
+        modal.style.display = 'flex';
+    });
+}
+
+    // Evento de aceptar redirige a pagar
+   aceptarModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+    window.location.href = '../Paginas/carrito.html';
 });
 
-// cuando toca "Aceptar", cierro el modal y lo mando al carrito
-aceptarModal.addEventListener('click', () => {
-  modal.style.display = 'none';
-  window.location.href = '../Paginas/carrito.html'; // redirige al carrito
-});
+    // Eventos para cerrar el modal
+    cerrarModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
 
-// si hace clic afuera del modal, también lo cierro
-window.addEventListener('click', e => {
-  if (e.target === modal) modal.style.display = 'none';
+    window.addEventListener('click', e => {
+        if (e.target === modal) modal.style.display = 'none';
+    });
 });

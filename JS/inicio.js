@@ -156,7 +156,7 @@ function generarTarjetasCursos() {
     cursos.forEach((curso, index) => {
         const tarjeta = document.createElement('div');
         tarjeta.classList.add('tarjeta');
-        
+        //Formato de cada tarjeta
     tarjeta.innerHTML = `
       <img src="${curso.imagen}" alt="Curso de ${curso.titulo}" class="curso-imagen" loading="lazy">
        <div class="curso-contenido">
