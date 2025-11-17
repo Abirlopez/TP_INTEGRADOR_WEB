@@ -1,51 +1,236 @@
-const titulo_texto = document.getElementById('titulo-popup');
-const descripcion = document.getElementById('descripcion-popup');
-const modal_container = document.getElementById('modal-container');
-const close = document.getElementById('close');
-const vinculo = document.getElementById('vinculo');
 
-const botones = document.getElementsByName('boton-accion');
+const coursesByDate = {
+  "2025-11-12": {
+    text: "Insc. Cursos\nJavaScript",
+    title: "Curso de JavaScript",
+    description: "Aprende JavaScript desde cero y domina la lógica de la web dinámica.",
+    id: 1
+  },
+  "2025-11-19": {
+    text: "Insc. Cursos\n CSS",
+    title: "Curso de CSS",
+    description: "Aprendé diseño web moderno con CSS3, Flexbox, Grid y Responsive Design.",
+    id: 2
+  },
+  "2025-11-25": {
+    text: "Insc. Cursos\nExcel",
+    title: "Curso de Excel",
+    description: "Aprendé Excel desde cero hasta nivel avanzado con funciones y dashboards.",
+    id: 4
+  }
+};
 
-if (botones.length > 0) {
-  botones.forEach(boton => {
-    boton.addEventListener('click', () => {
-      const texto = boton.innerText.trim().toLowerCase();
+/* ============================
+   ELEMENTOS DEL CALENDARIO
+   ============================ */
 
-      if (texto.includes("javascript")) {
-        titulo_texto.innerText = "Curso de JavaScript";
-        descripcion.innerText = "Aprende JavaScript desde cero y domina la lógica de la web dinámica.";
-        vinculo.href = "../Paginas/detalle_curso.HTML";
-        
-      } else if (texto.includes("html")) {
-        titulo_texto.innerText = "Curso de HTML y CSS";
-        descripcion.innerText = "Aprende a diseñar y maquetar páginas web desde cero con HTML5 y CSS3.";
-        vinculo.href = "./cursoHTML.html";
+const calendarBody = document.getElementById("calendar-body");
+const monthLabel = document.getElementById("monthLabel");
+const prevMonthBtn = document.getElementById("prevMonth");
+const nextMonthBtn = document.getElementById("nextMonth");
+const calendarHeader = document.getElementById("calendar-header");
 
-      } else if (texto.includes("python")) {
-        titulo_texto.innerText = "Curso de Python";
-        descripcion.innerText = "Descubre el lenguaje más versátil para desarrollo web, análisis de datos y más.";
-        vinculo.href = "../cursoPhyton.html";
+/* ============================
+   FUNCIONES AUXILIARES
+   ============================ */
+
+
+function formatKey(year, month, day) {
+  const m = String(month + 1).padStart(2, "0");
+  const d = String(day).padStart(2, "0");
+  return `${year}-${m}-${d}`;
+}
+
+/* ============================
+   CABECERA DE DÍAS (LUN, MAR...)
+   ============================ */
+function buildCalendarHeader() {
+  if (!calendarHeader) return;
+
+  calendarHeader.innerHTML = "";
+
+  // 7 de enero 2024 es domingo
+  const baseDate = new Date(2024, 0, 7);
+
+  for (let i = 0; i < 7; i++) {
+    const day = new Date(baseDate);
+    day.setDate(baseDate.getDate() + i);
+
+    let dayName = day.toLocaleDateString("es-AR", { weekday: "short" });
+    dayName = dayName.replace(".", "").toUpperCase(); // "dom." -> "DOM"
+
+    const th = document.createElement("th");
+    th.textContent = dayName;
+    calendarHeader.appendChild(th);
+  }
+}
+
+/* ============================
+   CONSTRUCCIÓN DEL CALENDARIO
+   ============================ */
+
+function buildCalendar(date) {
+  if (!calendarBody || !monthLabel) return;
+
+  const year = date.getFullYear();
+  const month = date.getMonth();
+
+  // Nombre del mes + año
+  const monthName = date.toLocaleDateString("es-AR", {
+    month: "long",
+    year: "numeric"
+  });
+  monthLabel.textContent =
+    monthName.charAt(0).toUpperCase() + monthName.slice(1);
+
+  calendarBody.innerHTML = "";
+
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
+  const totalDays = lastDay.getDate();
+  const startDay = firstDay.getDay(); // 0 = domingo
+
+  let row = document.createElement("tr");
+  let cells = 0;
+
+  // Celdas vacías antes del día 1
+  for (let i = 0; i < startDay; i++) {
+    row.appendChild(document.createElement("td"));
+    cells++;
+  }
+
+  const today = new Date();
+
+  for (let day = 1; day <= totalDays; day++) {
+    if (cells === 7) {
+      calendarBody.appendChild(row);
+      row = document.createElement("tr");
+      cells = 0;
+    }
+
+    const td = document.createElement("td");
+
+    // número del día
+    const dayNumber = document.createElement("div");
+    dayNumber.className = "day-number";
+    dayNumber.textContent = day;
+    td.appendChild(dayNumber);
+
+    const key = formatKey(year, month, day);
+    const course = coursesByDate[key];
+
+    // si hay curso ese día
+    if (course) {
+      td.classList.add("course-day");
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "course-badge boton-calendario";
+      btn.name = "boton-accion";
+      btn.innerText = course.text;
+
+      // guardamos los datos del curso en el botón
+      btn.dataset.title = course.title;
+      btn.dataset.description = course.description;
+      if (course.id) {
+        btn.dataset.id = course.id;
       }
 
-      modal_container.classList.add('show');
-    });
+      td.appendChild(btn);
+    }
+
+    // marcar día actual
+    if (
+      day === today.getDate() &&
+      month === today.getMonth() &&
+      year === today.getFullYear()
+    ) {
+      td.classList.add("today");
+    }
+
+    row.appendChild(td);
+    cells++;
+  }
+
+  // completar fila final
+  if (cells > 0 && cells < 7) {
+    for (let i = cells; i < 7; i++) {
+      row.appendChild(document.createElement("td"));
+    }
+  }
+
+  calendarBody.appendChild(row);
+
+  // conectar los botones del calendario con el popup
+  attachCourseHandlers();
+}
+
+/* ============================
+   POPUP / MODAL DE CURSO
+   ============================ */
+
+const titulo_texto = document.getElementById("titulo-popup");
+const descripcion = document.getElementById("descripcion-popup");
+const modal_container = document.getElementById("modal-container");
+const close = document.getElementById("close");
+const vinculo = document.getElementById("vinculo");
+
+function attachCourseHandlers() {
+  const botones = document.getElementsByName("boton-accion");
+  Array.from(botones).forEach((boton) => {
+    boton.onclick = () => {
+      const title = boton.dataset.title || "";
+      const descriptionText = boton.dataset.description || "";
+      const id = boton.dataset.id;
+      let url = boton.dataset.url || "#";
+
+      // Si tenemos id de curso, armamos la URL a detalle_curso
+      if (id) {
+        url = `../Paginas/detalle_curso.html?id=${id}`;
+      }
+
+      if (titulo_texto) titulo_texto.innerText = title;
+      if (descripcion) descripcion.innerText = descriptionText;
+      if (vinculo) vinculo.href = url;
+
+      if (modal_container) {
+        modal_container.classList.add("show");
+      }
+    };
   });
 }
 
-close.addEventListener('click', () => {
-  modal_container.classList.remove('show');
-});
+if (close && modal_container) {
+  close.addEventListener("click", () => {
+    modal_container.classList.remove("show");
+  });
 
-window.addEventListener('click', e => {
-  if (e.target === modal_container) {
-    modal_container.classList.remove('show');
+  window.addEventListener("click", (e) => {
+    if (e.target === modal_container) {
+      modal_container.classList.remove("show");
+    }
+  });
+}
+
+/* ============================
+   INICIALIZACIÓN
+   ============================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  buildCalendarHeader();
+
+  const currentDate = new Date();
+  buildCalendar(currentDate);
+
+  if (prevMonthBtn && nextMonthBtn) {
+    prevMonthBtn.addEventListener("click", () => {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      buildCalendar(currentDate);
+    });
+
+    nextMonthBtn.addEventListener("click", () => {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      buildCalendar(currentDate);
+    });
   }
 });
-
-const menuHamburguesa = document.getElementById("menu-hamburguesa");
-if (menuHamburguesa) {
-  menuHamburguesa.addEventListener("click", () => {
-    const menu = document.getElementById("menu-horizontal");
-    menu.classList.toggle("menu-abierto");
-  });
-};
