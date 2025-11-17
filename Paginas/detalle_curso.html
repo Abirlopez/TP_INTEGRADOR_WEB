@@ -3,122 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso de Java</title>
+    <title>Curso</title>
     <link rel="stylesheet" href="../css/contenidos.css">
 </head>
 
-
-<!-- MODAL DE FELICITACIÓN -->
-<div id="modal-felicitacion" class="modal-felicitacion">
-    <div class="modal-contenido">
-        <span id="cerrar-modal" class="cerrar-modal">&times;</span>
-        <h2>¡Felicitaciones!</h2>
-        <p>Te inscribiste exitosamente en el curso.</p>
-        <p id="detalle-curso"></p>
-        <button id="aceptar-modal" class="boton-aceptar">Aceptar</button>
-    </div>
-</div>
-
-
-
 <body id="body">
+
+    <div id="modal-felicitacion" class="modal-felicitacion">
+        <div class="modal-contenido">
+            <span id="cerrar-modal" class="cerrar-modal">&times;</span>
+            <h2>¡Felicitaciones!</h2>
+            <p>Te inscribiste exitosamente en el curso.</p>
+            <p id="detalle-curso"></p>
+            <button id="aceptar-modal" class="boton-aceptar">Aceptar</button>
+        </div>
+    </div>
+
+
     <header>
         <div class="nav-background">
             <nav class="navegacion-principal contenedor sombreado">
+
                 <a href="../index.html">
                     <img class="logo" src="../img/Logo.png" alt="logoTipo">
                 </a>
-                
+
                 <div class="search">
-                    <label for="buscador-opciones"></label>
                     <input class="search-input" type="search" placeholder="Buscar" list="buscador-historial" id="buscador-opciones">
-                    
                     <datalist id="buscador-historial">
                         <option value="JavaScript"></option>
                         <option value="HTML5"></option>
                         <option value="CSS"></option>
                     </datalist>
                 </div>
-                
+
                 <div class="menu-derecha">
+
                     <div>
                         <div><a href="../Paginas/contacto.html">Contacto</a></div>
                         <div><a href="../Paginas/calendario.html">Calendario</a></div>
                         <div><a href="../Paginas/giftcard.html">GiftCard</a></div>
                         <div><a href="../Paginas/formulario.html">Formulario</a></div>
                     </div>
-                    
-                      <button id="btn-cerrar-sesion" style="display:none;" class="btn-cerrar-sesion">
-                        Cerrar Sesión
-                    </button>
 
+                    <button id="btn-cerrar-sesion" style="display:none;" class="btn-cerrar-sesion">Cerrar Sesión</button>
 
                     <div class="carrito">
                         <a href="../Paginas/carrito.html">
-                            <img class="logo" src="../img/carrito-de-compras (1).png" alt="logoCarrito">
+                            <img class="logo" src="../img/carrito-de-compras (1).png">
                         </a>
-                        <span class="unidades" id="preview-unidades">5</span>
+                        <span class="unidades" id="preview-unidades">0</span>
                     </div>
 
                     <div class="logo-usuario">
                         <a href="../Paginas/perfil.html">
-                            <img class= "logo" src="../img/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.png" alt="logo-usuario">
+                            <img class="logo" src="../img/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.png">
                         </a>
                     </div>
+
                 </div>
             </nav>
         </div>
     </header>
-    
-   <main class="curso">
-    <section class="curso-info">
-        <div class="curso-foto">
-            <img id="curso-imagen-detalle" src="" alt="Foto del curso">
-        </div>
-        
-        <div class="curso-detalle">
-            <p class="curso-detalle-titulo">
-                <strong>PROFESIONAL EN <span id="curso-titulo-detalle">Cargando...</span></strong>
-            </p>
-            <p><strong>Valor:</strong> <span id="curso-valor-detalle">Cargando...</span></p>
-            <p><strong>Tiempo de dedicación necesario:</strong> <span id="curso-duracion-detalle">Cargando...</span></p>
-            <p><strong>Descripción del curso:</strong> <span id="curso-desc-detalle">Cargando...</span></p>
-            <p><strong>Requisitos previos:</strong> Acceso a internet y ganas de aprender.</p>
-            <a class="btn-inscribirse" id="btn-inscribirse" href="#">INSCRIBIRSE</a>
-        </div>
-    </section>
-    
-    <section class="contenidos">
-        <h3>Contenidos por clase</h3>
-        <div class="acordeon">
-            <details open>
-                <summary>Unidad 1</summary>
-                <ul><li>Temas a cargar...</li></ul>
-            </details>
-        </div>
-    </section>
-    
-    <section class="docente">
-        <h3>Docente</h3>
-        <div class="docente-info">
-            <img src="../img/foto-docente.jpg" alt="Docente">
-            <div>
-                <h1>Nombre del Docente</h1>
-                <p>⭐⭐⭐⭐⭐</p>
-                <p class="docente-desc">Información del docente aquí...</p>
+
+
+
+    <main class="curso">
+
+        <div class="curso-info">
+            
+            <div class="curso-foto">
+                <img id="curso-imagen-detalle" src="" alt="">
+            </div>
+
+            <div class="curso-detalle">
+
+                <h1 id="curso-titulo-detalle" class="curso-detalle-titulo"></h1>
+
+                <p id="curso-valor-detalle"></p>
+                <p id="curso-duracion-detalle"></p>
+                <p id="curso-desc-detalle"></p>
+
+                <a id="btn-inscribirse" class="btn-inscribirse" href="#">
+                    Inscribirme
+                </a>
+
             </div>
         </div>
-    </section>
-    
-    <h2>OTROS CURSOS</h2>
-    
-    <div class="cursos-disponibles">
-    </div>
-</main>
-    
 
-</body>
-</html>
+
+        <section class="contenidos" id="curso-detalle-dinamico">
+            
+        </section>
+
+    </main>
+
+
+
     
     <footer class="footer-principal">
         <div class="footer-contenedor">
@@ -142,14 +123,16 @@
             
             <div class="footer-seccion social">
                 <h2>REDES SOCIALES</h2>
-                <a href="#" class="social-icon"><img src="../img/facebook-icon.png" alt="Facebook"></a>
-                <a href="#" class="social-icon"><img src="../img/twitter-icon.png" alt="Twitter"></a>
-                <a href="#" class="social-icon"><img src="../img/instragram-icon.jpeg" alt="Instagram"></a>
+                <a href="#" class="social-icon"><img src="../img/facebook-icon.png"></a>
+                <a href="#" class="social-icon"><img src="../img/twitter-icon.png"></a>
+                <a href="#" class="social-icon"><img src="../img/instragram-icon.jpeg"></a>
             </div>
         </div>
     </footer>
-    <script src="../JS/detalle.js" ></script>
-      <script src="../JS/usuarios.js"></script>
+
+
+    <script src="../JS/detalle.js"></script>
+    <script src="../JS/usuarios.js"></script>
 
 </body>
 </html>
