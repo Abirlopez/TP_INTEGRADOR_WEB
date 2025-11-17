@@ -1,101 +1,180 @@
-// ==== FORMULARIO DE INSCRIPCIÓN DINÁMICO ====
+// FORMULARIO DE INSCRIPCIÓN
 
-const tipoRadios = document.querySelectorAll('input[name="tipo"]'); // radios personal / empresa
+// agarro los radios (empresa / personal)
+const tipoRadios = document.querySelectorAll('input[name="tipo"]');
+
+// agarro el formulario completo para poder meter filas nuevas adentro
 const formulario = document.getElementById('formulario-inscripcion');
-const filaBase = document.querySelector('.fila-inscripcion'); // la primera fila que viene en el form
-const botonAgregar = document.querySelector('.boton-agregar'); // botón "+"
-const precioSpan = document.querySelector('.precio'); // texto que muestra el total $
-const botonInscribirse = document.querySelector('.boton-inscribirse'); // botón principal
 
-const PRECIO_BASE = 100;          // precio base del curso
-const PRECIO_POR_PERSONA = 20;    // adicional por persona si es empresa
+// la primera fila que viene escrita en el HTML 
+const filaBase = document.querySelector('.fila-inscripcion');
 
-let tipo = 'personal';            // arranca como inscripción personal
-let cantidadPersonas = 1;         // arranca con una persona
+// botón para agregar una persona
+const botonAgregar = document.querySelector('.boton-agregar');
 
-// cuando cambia el tipo (personal o empresa)
+// muestro el total en pantalla
+const precioSpan = document.querySelector('.precio');
+
+// botón principal de “inscribirse”
+const botonInscribirse = document.querySelector('.boton-inscribirse');
+
+// precios fijos
+
+const PRECIO_BASE = 100;       // el precio del curso solo
+const PRECIO_POR_PERSONA = 20; // extra por cada persona extra 
+
+
+let tipo = 'personal';
+let cantidadPersonas = 1;
+
+
+// CAMBIO DE TIPO (PERSONAL / EMPRESA) 
 tipoRadios.forEach(radio => {
   radio.addEventListener('change', e => {
+    // guardo que tipo eligio el usuario
     tipo = e.target.value;
+
+    // actualizo lo que se muestra según lo elegido
     actualizarVistaSegunTipo();
   });
 });
 
-// función que muestra / oculta cosas según el tipo
+
+// ACTUALIZAR FORMULARIO SEGÚN EL TIPO 
 function actualizarVistaSegunTipo() {
+
   const filas = document.querySelectorAll('.fila-inscripcion');
 
   if (tipo === 'personal') {
-    // si es personal, dejo solo la primera fila visible
+    // dejo solo la primera fila
     filas.forEach((fila, index) => {
-      if (index === 0) fila.style.display = 'flex';
-      else fila.remove();
+      if (index === 0) {
+        fila.style.display = 'flex';  // muestro la primera
+      } else {
+        fila.remove();                // las demás las borro
+      }
     });
-    cantidadPersonas = 1;
-    botonAgregar.style.display = 'none'; // oculto el botón +
+
+    cantidadPersonas = 1;              // vuelvo a 1 persona
+    botonAgregar.style.display = 'none'; // oculto el botón “+”
   } else {
-    botonAgregar.style.display = 'block'; // lo muestro si es empresa
+    // si es empresa → muestro el botón “+”
+    botonAgregar.style.display = 'block';
   }
 
-  recalcularTotal(); // actualizo el total
+  // cada vez que cambio el tipo recalculo el total
+  recalcularTotal();
 }
 
-// botón "+" → agrega una nueva fila
-botonAgregar.addEventListener('click', () => {
-  const nuevaFila = filaBase.cloneNode(true); // clono la fila original
-  nuevaFila.querySelectorAll('input').forEach(input => input.value = ''); // limpio los campos
 
-  // meto la nueva fila antes del bloque de botones del form
+// AGREGAR PERSONA NUEVA
+
+botonAgregar.addEventListener('click', () => {
+
+  // clono la fila original (filaBase)
+  const nuevaFila = filaBase.cloneNode(true);
+
+  // limpio los inputs para que arranque vacía
+  nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+
+  // meto nueva fila 
   formulario.insertBefore(nuevaFila, document.querySelector('.acciones-formulario'));
 
-  cantidadPersonas++; // aumento el contador
-  agregarEventosEliminar(nuevaFila); // le agrego su botón de eliminar
-  recalcularTotal(); // recalculo el total
+  // sumo una persona más
+  cantidadPersonas++;
+
+  // esta fila nueva necesita su propio botón eliminar
+  agregarEventosEliminar(nuevaFila);
+
+  // recalculo el total
+  recalcularTotal();
 });
 
-// asigna la función al botón eliminar dentro de cada fila
+
+// AGREGAR EVENTO PARA EL BOTÓN "ELIMINAR"
+
 function agregarEventosEliminar(fila) {
   const btnEliminar = fila.querySelector('.boton-eliminar');
+
   btnEliminar.addEventListener('click', () => {
+
+    // si estoy en empresa y hay más de 1 persona, borro la fila 
     if (tipo === 'empresa' && cantidadPersonas > 1) {
-      fila.remove();             // borro la fila del DOM
-      cantidadPersonas--;        // resto una persona
-      recalcularTotal();         // recalculo el precio
+      fila.remove();
+      cantidadPersonas--;
+      recalcularTotal();
     } else {
-      // si es la primera fila (modo personal), solo limpio los inputs
+      // si es la primera fila y estoy en personal → NO se borra, solo limpio
       fila.querySelectorAll('input').forEach(i => i.value = '');
     }
   });
 }
 
-agregarEventosEliminar(filaBase); // le doy el evento a la primera fila también
+// activo el botón eliminar de la primera fila
+agregarEventosEliminar(filaBase);
 
-// calcula el total según el tipo y cantidad de personas
+
+// CALCULAR EL TOTAL 
 function recalcularTotal() {
+
   let total = PRECIO_BASE;
-  if (tipo === 'empresa') total += (cantidadPersonas - 1) * PRECIO_POR_PERSONA;
-  precioSpan.textContent = `$${total}.-`; // actualizo el texto
+
+  // si es empresa → cada persona extra suma 20
+  if (tipo === 'empresa') {
+    total += (cantidadPersonas - 1) * PRECIO_POR_PERSONA;
+  }
+
+  // muestro el total en pantalla
+  precioSpan.textContent = `$${total}.-`;
 }
 
-// cuando se hace clic en "Inscribirse"
+
+
+// INSCRIBIRSE 
+
 botonInscribirse.addEventListener('click', e => {
-  e.preventDefault();
 
-  // saco los datos de cada fila del formulario
-  const personas = [...document.querySelectorAll('.fila-inscripcion')].map(fila => {
-    const inputs = fila.querySelectorAll('input');
-    return {
-      nombre: inputs[0].value,
-      apellido: inputs[1].value,
-      telefono: inputs[2].value
-    };
-  });
+    e.preventDefault(); // evito que el form recargue la página
 
-  // armo un texto resumen con todos los nombres y apellidos
-  const resumen = personas
-    .map((p, i) => `${i + 1}. ${p.nombre || '-'} ${p.apellido || '-'}`)
-    .join('\n');
+    // agarro todas las filas
+    const filas = document.querySelectorAll('.fila-inscripcion');
 
-  // muestro un alert con el resumen final
-  alert(`Inscripción completada (${tipo.toUpperCase()})\n\n${resumen}`);
+    let formularioIncompleto = false;
+
+    // recorro cada fila para leer los inputs
+    const personas = [...filas].map((fila, index) => {
+
+        const inputs = fila.querySelectorAll('input');
+
+        // reviso si alguno está vacío 
+        inputs.forEach(input => {
+            if (input.value.trim() === "") {
+                formularioIncompleto = true;   // marco que falta algo
+                input.classList.add("input-error"); // le pongo clase de error
+            } else {
+                input.classList.remove("input-error"); // limpio error si estaba antes
+            }
+        });
+
+        // devuelvo un objeto con los datos
+        return {
+            nombre: inputs[0].value,
+            apellido: inputs[1].value,
+            telefono: inputs[2].value
+        };
+    });
+
+    // si encontré algún campo vacío 
+    if (formularioIncompleto) {
+        alert("FALTAN COMPLETAR CAMPOS. REVISAR ANTES DE SEGUIR");
+        return; 
+    }
+
+    // si está todo completo 
+    const resumen = personas
+        .map((p, i) => `${i + 1}. ${p.nombre} ${p.apellido} - Tel: ${p.telefono}`)
+        .join('\n');
+
+    alert(`Inscripción completada (${tipo.toUpperCase()})\n\n${resumen}`);
 });
+
