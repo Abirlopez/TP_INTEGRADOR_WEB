@@ -277,27 +277,75 @@ h2 {
   background-color: #0056b3;
 }
 
-/* ──────────────── MEDIOS DE PAGO ──────────────── */
+/* ─────────────── CONTENEDOR GENERAL ─────────────── */
+.medios-pago-contenedor {
+  text-align: center;
+  margin-top: 3rem;
+}
 
+.medios-pago-titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: rgb(0, 0, 0)000;
+}
+
+/* ─────────────── CARRUSEL ─────────────── */
 .medios-pago {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  gap: 1.5rem; 
-  flex-wrap: wrap;
-  padding: 2rem 0;
+  gap: 2rem;
+  padding: 1rem 0;
 }
 
-.medios-pago img {
-  width: 80px;
+/* Ventana donde se muestra el logo */
+.medios-pago-ventana {
+  overflow: hidden;
+  width: 180px;   /* ← AGRANDADO */
+  height: 120px;  /* ← AGRANDADO */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor de logos */
+.medios-pago-track {
+  display: flex;
+  align-items: center;
+}
+
+/* Imagen de cada medio */
+.medios-pago-track img {
+  width: 140px;   /* ← AGRANDADO */
   height: auto;
   object-fit: contain;
-  transition: transform 0.2s ease;
+  display: none;
+  transition: transform 0.25s ease;
 }
 
-.medios-pago img:hover {
-  transform: scale(1.5);
+.medios-pago-track img.activo {
+  display: block;
 }
+
+.medios-pago-track img.activo:hover {
+  transform: scale(1.15);
+}
+
+/* Botones laterales */
+.pago-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.pago-btn img {
+  width: 40px;   /* ← AGRANDADO */
+  height: auto;
+}
+
+
 
 
 /* ──────────────── FOOTER ──────────────── */
