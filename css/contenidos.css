@@ -531,6 +531,23 @@ footer a {
 .boton-aceptar:hover {
   background-color: #005fa3;
 }
+/* Estilo general para el botón de cerrar sesión */
+.btn-cerrar-sesion {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #ff4444;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.1s;
+    font-size: 0.9rem;
+}
+.btn-cerrar-sesion:hover {
+    background-color: #cc0000;
+}
 
 /* ──────────────── RESPONSIVE ──────────────── */
 

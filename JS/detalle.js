@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!cursoActual) return;
 
+    const usuarioActivo = JSON.parse(sessionStorage.getItem('usuarioActivo'));
+
     // Carga de datos para la pagina
 
     const botonInscribirse = document.getElementById('btn-inscribirse');
@@ -53,7 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     
     function agregarACarrito(curso) {
-        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        const usuarioActivo = JSON.parse(sessionStorage.getItem('usuarioActivo'));
+        const USER_KEY = usuarioActivo ? usuarioActivo.email : 'carrito_invitado';
+        const STORAGE_KEY = `carrito_${USER_KEY}`;
+
+        let carrito = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
         
         const cursoExistenteIndex = carrito.findIndex(item => item.id === curso.id);
 
@@ -68,19 +74,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 cantidad: 1
             });
         }
+
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(carrito));
         
-        localStorage.setItem('carrito', JSON.stringify(carrito));
+        const totalUnidades = carrito.reduce((total, item) => total + item.cantidad, 0);
+        sessionStorage.setItem('cantidadCursos', totalUnidades);
         
-        // Actualizar el contador de unidades en sessionStorage
-        let cantidadCursos = parseInt(sessionStorage.getItem('cantidadCursos')) || 0;
-        cantidadCursos += 1;
-        sessionStorage.setItem('cantidadCursos', cantidadCursos);
-        
+ 
     }
 
 if (botonInscribirse) {
     botonInscribirse.addEventListener('click', e => {
         e.preventDefault(); 
+        if (!usuarioActivo) {
+            alert('Debés iniciar sesión para poder inscribirte a un curso.');
+            window.location.href = '../Paginas/login.html'; 
+            return;
+            }
         
         // Añade el curso al carrito
         agregarACarrito(cursoActual); 
@@ -88,7 +98,7 @@ if (botonInscribirse) {
         // Muestra el modal con la descripcion
         detalleCursoModal.textContent = `${cursoActual.titulo} — Valor: U$D ${cursoActual.precio}`;
         modal.style.display = 'flex';
-    });
+});
 }
 
     // Evento de aceptar redirige a pagar

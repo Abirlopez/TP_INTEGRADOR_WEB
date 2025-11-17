@@ -1,18 +1,14 @@
-/* SISTEMA DE USUARIOS */
-
 // los usuarios se guardan en localStorage bajo la clave 'usuarios'
 
 
-// REGISTRO DE NUEVO USUARIO 
-
-// agarro el form de registro si existe en la página
+// Agarro el form de registro si existe en la página
 const formRegistro = document.getElementById('form-registro');
 
 if (formRegistro) {
   formRegistro.addEventListener('submit', e => {
-    e.preventDefault(); // evito que se recargue la página
+    e.preventDefault(); // Evito que se recargue la página
 
-    // agarro los valores del form
+    // Agarro los valores del form
     const nombre = document.getElementById('registro-nombre').value.trim();
     const email = document.getElementById('registro-email').value.trim();
     const password = document.getElementById('registro-password').value.trim();
@@ -44,6 +40,36 @@ if (formRegistro) {
   });
 }
 
+
+function cargarContadorUsuario() {
+    // 1. Obtener el usuario activo de sessionStorage
+    const usuarioActivo = JSON.parse(sessionStorage.getItem('usuarioActivo'));
+    
+    // Determinar la clave de almacenamiento (Usamos el email como ID único)
+    const USER_KEY = usuarioActivo ? usuarioActivo.email : 'carrito_invitado';
+    const STORAGE_KEY = `carrito_${USER_KEY}`;
+    
+    // 2. Obtener el carrito específico del usuario
+    const carritoUsuario = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    
+    // 3. Calcular el total de unidades (sumando la cantidad de cada ítem)
+    const totalUnidades = carritoUsuario.reduce((total, item) => total + item.cantidad, 0);
+    
+    // 4. Actualizar el contador visual en el header
+    const contadorPreview = document.getElementById('preview-unidades');
+    if (contadorPreview) {
+        contadorPreview.textContent = totalUnidades;
+        
+        // 5. Opcional: Mantener sessionStorage actualizado con el total correcto
+        sessionStorage.setItem('cantidadCursos', totalUnidades);
+    }
+}
+
+// 6. Ejecutar la función cuando la página esté lista
+document.addEventListener('DOMContentLoaded', cargarContadorUsuario);
+
+// Nota: Si tus scripts se cargan al final del <body>,
+// la llamada a document.addEventListener('DOMContentLoaded', ...) asegura la ejecución.
 
 // INICIO DE SESIÓN 
 
@@ -83,6 +109,36 @@ if (formLogin) {
 const usuarioActivo = JSON.parse(sessionStorage.getItem('usuarioActivo'));
 if (usuarioActivo) {
   console.log(`Usuario logueado: ${usuarioActivo.nombre}`);
+}
+
+function cerrarSesion() {
+    // 1. Elimina la clave que identifica al usuario activo de sessionStorage
+    sessionStorage.removeItem('usuarioActivo');
+
+    // Opcional: Limpiar el contador global (ya que el usuario ya no está logeado)
+    sessionStorage.removeItem('cantidadCursos'); 
+
+    // 2. Notificar o redirigir al inicio
+    alert('Sesión cerrada exitosamente.');
+    window.location.href = '../index.html'; // Redirige a la página principal
+}
+const btnCerrarSesion = document.getElementById('btn-cerrar-sesion');
+
+// VERIFICACIÓN Y VINCULACIÓN AL CARGAR LA PÁGINA
+if (btnCerrarSesion) {
+    // Verificar si hay un usuario logeado (variable 'usuarioActivo' ya la tienes definida)
+    const usuarioActivo = JSON.parse(sessionStorage.getItem('usuarioActivo'));
+
+    if (usuarioActivo) {
+        // Mostrar el botón si hay sesión activa
+        btnCerrarSesion.style.display = 'block'; 
+        
+        // Asignar el evento click para cerrar la sesión
+        btnCerrarSesion.addEventListener('click', cerrarSesion);
+    } else {
+        // Ocultar el botón si no hay sesión
+        btnCerrarSesion.style.display = 'none';
+    }
 }
 
 
