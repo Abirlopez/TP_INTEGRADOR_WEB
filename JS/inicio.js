@@ -1,166 +1,110 @@
-// contador de cursos
+// ==== CONTADOR DE CURSOS ====
 
+// agarro el elemento del contador en el header
 const contadorCarrito = document.getElementById('preview-unidades');
+
+// si ya hay algo guardado en sessionStorage, lo uso
 let cantidadCursos = sessionStorage.getItem('cantidadCursos');
 
+// si no hay nada, lo creo desde cero
 if (!cantidadCursos) {
   cantidadCursos = 0;
-  sessionStorage.setItem('cantidadCursos', cantidadCursos);
+  sessionStorage.setItem('cantidadCursos', cantidadCursos); // arranco en 0
 }
 
+// muestro el valor actual del contador
 contadorCarrito.textContent = cantidadCursos;
 
 
-// slider
 
+
+// SLIDER 
+
+// selecciono las imágenes del slider y los puntitos
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
-let indice = 0;
+let indice = 0; // guarda el número del slide que está visible
 
+// función que muestra el slide correspondiente y actualiza los puntitos
 function mostrarSlide(i) {
   slides.forEach((slide, index) => {
+    // si el índice coincide con el slide que quiero mostrar, lo activo
     slide.classList.toggle('active', index === i);
-    dots[index].classList.toggle('active', index === i);
+    dots[index].classList.toggle('active', index === i); // mismo con los puntitos
   });
 
-  indice = i;
+  indice = i; // guardo el slide actual
 }
 
+// cambio automático cada 4 segundos
 setInterval(() => {
+  // paso al siguiente slide, y si estoy en el último, vuelvo al primero
   indice = (indice + 1) % slides.length;
-  mostrarSlide(indice);
-}, 4000);
 
+  // muestro el nuevo slide
+  mostrarSlide(indice);
+}, 4000); // 4 segundos
+
+// control manual con clics en los puntitos
 dots.forEach((dot, i) => {
   dot.addEventListener('click', () => {
-    mostrarSlide(i);
+    mostrarSlide(i); // muestro el slide correspondiente al puntito clickeado
   });
 });
 
-
-// cursos dinamicos
-
+// Se crea un array con el contenido de las tarjetas
 const cursosDestacados = [
     {
         id: 1,
         titulo: "Curso de JavaScript",
-        descripcion: "Aprendé JavaScript desde cero con ejercicios reales y proyectos prácticos.",
+        descripcion: "Aprende JavaScript desde cero y crea tus propias aplicaciones web.",
         imagen: "img/curso_js.png",
-        precio: 50,
-        beneficios: [
-            "Aprendés desde cero",
-            "Ejercicios reales",
-            "Acceso de por vida",
-            "Proyectos aplicados"
-        ],
-        requisitos: [
-            "Ningún conocimiento previo",
-            "PC o notebook",
-            "Ganas de aprender"
-        ],
-        temario: [
-            { titulo: "Introducción a JavaScript", descripcion: "Qué es JS, historia, dónde se usa, cómo funciona en el navegador." },
-            { titulo: "Variables y tipos de datos", descripcion: "let, const, var, tipos de datos, coerción y buenas prácticas." },
-            { titulo: "Operadores y expresiones", descripcion: "Operadores lógicos, aritméticos, comparaciones y precedencia." },
-            { titulo: "Condicionales", descripcion: "Uso de if, else, else if y operadores ternarios." },
-            { titulo: "Bucles", descripcion: "for, while, do while, for...of, for...in." },
-            { titulo: "Funciones", descripcion: "Funciones declaradas, expresadas, callbacks, arrow functions." },
-            { titulo: "Objetos y Arrays", descripcion: "Estructuras, métodos importantes, manipulación y recorrido." },
-            { titulo: "DOM (Document Object Model)", descripcion: "Seleccionar elementos, modificar HTML, estilos y atributos." },
-            { titulo: "Eventos", descripcion: "click, input, submit, listeners, delegación y propagación." },
-            { titulo: "Fetch API", descripcion: "Pedir datos online, JSON, promesas y async/await." },
-            { titulo: "Proyecto Final", descripcion: "Creación de mini app web con DOM + eventos + lógica real." }
-        ],
-        docente: {
-            nombre: "Mariana Torres",
-            especialidad: "JavaScript & Desarrollo Frontend",
-            descripcion: "Desarrolladora Senior con más de 10 años en proyectos web modernos.",
-            imagen: "img/docente_js.jpg"
-        }
-
+        url: "Paginas/detalle_curso.html",
+        precio: 50
     },
-
     {
         id: 2,
-        titulo: "Curso de CSS Profesional",
-        descripcion: "Aprendé diseño web moderno con CSS3, Flexbox, Grid y Responsive Design.",
+        titulo: "Curso de CSS",
+        descripcion: "Aprende CSS desde cero y diseña tus propias aplicaciones web.",
         imagen: "img/curso_css.png",
-        precio: 40,
-        beneficios: ["Responsive Design", "Flexbox", "Grid", "Animaciones"],
-        requisitos: ["HTML básico", "PC o notebook"],
-        temario: [
-            { titulo: "Selectores y propiedades", descripcion: "Selectores básicos, combinadores, pseudo clases y pseudo elementos." },
-            { titulo: "Modelo de caja (Box Model)", descripcion: "Padding, margin, border, display, overflow y box-sizing." },
-            { titulo: "Tipografías y colores", descripcion: "Importación, variables, webfonts y teoría del color." },
-            { titulo: "Flexbox", descripcion: "Ejes, alineación, distribución, orden y diseño flexible." },
-            { titulo: "CSS Grid", descripcion: "Filas, columnas, áreas, layout avanzado y responsive." },
-            { titulo: "Animaciones y transiciones", descripcion: "Transform, transition, keyframes, animaciones suaves." },
-            { titulo: "Media Queries", descripcion: "Sitios responsive para móvil, tablet y escritorio." },
-            { titulo: "Proyecto Final", descripcion: "Maquetación completa de un sitio profesional." }
-        ],
-        docente: {
-            nombre: "Carlos Jiménez",
-            especialidad: "CSS, UI/UX & Diseño Web",
-            descripcion: "Diseñador web experto en responsive design y experiencia de usuario.",
-            imagen: "img/docente_css.jpg"
-        }
-
+        url: "#",
+        precio: 40
     },
-
     {
         id: 3,
         titulo: "Curso de Inteligencia Artificial",
-        descripcion: "Introducción a la IA moderna: Machine Learning, Deep Learning y redes neuronales.",
+        descripcion: "Conoce distintas técnicas y conceptos relacionados a la construcción de sistemas inteligentes.",
         imagen: "img/curso_ia.png",
-        precio: 90,
-        beneficios: ["Machine Learning", "Redes Neuronales", "Conceptos modernos de IA"],
-        requisitos: ["Python básico", "Lógica de programación"],
-        temario: [
-            { titulo: "Qué es la IA", descripcion: "Historia, aplicaciones modernas y futuro." },
-            { titulo: "Machine Learning", descripcion: "Modelos supervisados y no supervisados." },
-            { titulo: "Redes neuronales", descripcion: "Perceptrón, capas ocultas, funciones de activación." },
-            { titulo: "Deep Learning", descripcion: "Redes profundas, entrenamiento y validación." },
-            { titulo: "Procesamiento de datos", descripcion: "Limpieza, normalización y dataset." },
-            { titulo: "Proyecto Final", descripcion: "Creación de un modelo predictivo básico." }
-        ],
-        docente: {
-            nombre: "Lucía Fernández",
-            especialidad: "Machine Learning & Deep Learning",
-            descripcion: "Ingeniera en Sistemas especializada en IA aplicada a soluciones reales.",
-            imagen: "img/docente_ia.jpg"
-        }
-
+        url: "#",
+        precio: 90
     },
-
     {
         id: 4,
-        titulo: "Curso de Excel Profesional",
-        descripcion: "Aprendé Excel desde cero hasta nivel avanzado con funciones y dashboards.",
+        titulo: "Curso de Excel",
+        descripcion: "Aprende Excel desde cero hasta nivel experto. Optimiza tu productividad personal y profesional.",
         imagen: "img/curso_excel.png",
-        precio: 30,
-        beneficios: ["Tablas", "Fórmulas", "Dashboard", "Funciones avanzadas"],
-        requisitos: ["PC con Excel", "Manejo básico de PC"],
-        temario: [
-            { titulo: "Introducción a Excel", descripcion: "Interfaz, celdas, hojas, formatos y atajos." },
-            { titulo: "Funciones básicas", descripcion: "SUMA, PROMEDIO, CONTAR, MAX, MIN, etc." },
-            { titulo: "Funciones avanzadas", descripcion: "BUSCARV, BUSCARX, SI, CONTAR.SI.CONJUNTO, filtros." },
-            { titulo: "Tablas y gráficos", descripcion: "Tablas dinámicas, gráficos y segmentación." },
-            { titulo: "Dashboards", descripcion: "Diseño profesional + automatización." },
-            { titulo: "Proyecto Final", descripcion: "Dashboard completo con KPIs reales." }
-        ],
-        docente: {
-            nombre: "Sebastián Martínez",
-            especialidad: "Data Analyst & Excel Avanzado",
-            descripcion: "Analista con experiencia internacional en manejo avanzado de datos.",
-            imagen: "img/docente_excel.jpg"
-        }
-
+        url: "#",
+        precio: 30
+    },
+    {
+        id: 5,
+        titulo: "Curso de Java",
+        descripcion: "Iniciate desde cero. Con Java, desarrollarás aplicaciones versátiles, efectivas y ligeras.",
+        imagen: "img/curso_java.png",
+        url: "#",
+        precio: 75
+    },
+    {
+        id: 6,
+        titulo: "Curso de Python",
+        descripcion: "Curso de Python, Programación de código abierto y desarrollo de aplicaciones.",
+        imagen: "img/curso_python.png",
+        url: "#",
+        precio: 80
     }
 ];
 
-
-// guardar cursos en localStorage
-
+//Se barajan las opciones del array asignando un randomIndex 
 function barajarArray(array) {
     let currentIndex = array.length, randomIndex;
 
@@ -173,16 +117,18 @@ function barajarArray(array) {
     }
 
     return array;
+
 }
 
 if (localStorage.getItem('cursos') === null) {
+    // Se crea una copia del array y se baraja antes de guardarlo
     const cursosAleatoriosIniciales = barajarArray([...cursosDestacados]);
+    
+    // Guardamos el orden aleatorio inicial
     localStorage.setItem('cursos', JSON.stringify(cursosAleatoriosIniciales));
 }
 
-
-// generar tarjetas en INDEX
-
+//Funcion para generar las tarjetas de forma dinamica
 function generarTarjetasCursos() {
     const contenedorCursosTotal = document.querySelector('.cursos-total');
     
@@ -190,10 +136,14 @@ function generarTarjetasCursos() {
     
     const cursosJSON = localStorage.getItem('cursos');
     if (!cursosJSON) return;
-
+    
+    //Se convierte la cadena JSON a un array de cursos
     let cursos = JSON.parse(cursosJSON); 
+    
+    //Se baraja el array cada vez que se cargue la pagina
     cursos = barajarArray(cursos); 
     
+    //Se limpian los contenedores
     let contenedorActual = contenedorCursosTotal.querySelector('.cursos-disponibles');
     while (contenedorActual) {
         contenedorCursosTotal.removeChild(contenedorActual);
@@ -206,19 +156,22 @@ function generarTarjetasCursos() {
     cursos.forEach((curso, index) => {
         const tarjeta = document.createElement('div');
         tarjeta.classList.add('tarjeta');
-
-        tarjeta.innerHTML = `
-          <img src="${curso.imagen}" alt="${curso.titulo}" class="curso-imagen" loading="lazy">
-          <div class="curso-contenido">
-            <h3 class="curso-titulo">${curso.titulo}</h3>
-            <p class="curso-descripcion">${curso.descripcion}</p>
-            <p class="curso-precio">Precio: $${curso.precio}</p> 
-            <a href="Paginas/detalle_curso.html?id=${curso.id}" class="curso-boton">Ver curso</a>
-          </div>
-        `;
+        //Formato de cada tarjeta
+    tarjeta.innerHTML = `
+      <img src="${curso.imagen}" alt="Curso de ${curso.titulo}" class="curso-imagen" loading="lazy">
+       <div class="curso-contenido">
+         <h3 class="curso-titulo">${curso.titulo}</h3>
+          <p class="curso-descripcion">
+             ${curso.descripcion}
+         </p>
+         <p class="curso-precio">Precio: $${curso.precio}</p> 
+          <a href="Paginas/detalle_curso.html?id=${curso.id}" class="curso-boton">Ver curso</a>
+      </div>
+  `;
         
         filaContenedor.appendChild(tarjeta);
         
+        // Agrega la fila al contenedor principal cada 3 elementos o al final
         if ((index + 1) % 3 === 0 || index === cursos.length - 1) {
             contenedorCursosTotal.appendChild(filaContenedor);
             
@@ -228,6 +181,49 @@ function generarTarjetasCursos() {
             }
         }
     });
-}
 
+}
 document.addEventListener('DOMContentLoaded', generarTarjetasCursos);
+
+// ==== CARRUSEL DE MÉTODOS DE PAGO ====
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.medios-pago-track');
+  if (!track) return;
+
+  const logos = Array.from(track.querySelectorAll('img'));
+  if (logos.length === 0) return;
+
+  let indice = 0;
+
+  const mostrarLogo = () => {
+    logos.forEach((logo, i) => {
+      logo.classList.toggle('activo', i === indice);
+    });
+  };
+
+  const btnPrev = document.querySelector('.medios-pago .prev');
+  const btnNext = document.querySelector('.medios-pago .next');
+
+  if (btnPrev) {
+    btnPrev.addEventListener('click', () => {
+      indice = (indice - 1 + logos.length) % logos.length;
+      mostrarLogo();
+    });
+  }
+
+  if (btnNext) {
+    btnNext.addEventListener('click', () => {
+      indice = (indice + 1) % logos.length;
+      mostrarLogo();
+    });
+  }
+
+  // Mostrar el primer logo al cargar
+  mostrarLogo();
+
+  // Rotación automática cada 4 segundos (opcional)
+  setInterval(() => {
+    indice = (indice + 1) % logos.length;
+    mostrarLogo();
+  }, 4000);
+});
