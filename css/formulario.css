@@ -241,6 +241,11 @@ main {
   margin-bottom: 0.5rem;
 }
 
+.input-error {
+    border: 2px solid red !important;
+    background: #ffebeb;
+}
+
 .barra_insc-input,
 select {
   width: 100%;
